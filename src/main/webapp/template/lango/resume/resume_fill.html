@@ -1,0 +1,709 @@
+<% DIRECTIVE SAFE_OUTPUT_OPEN; var headContent = {
+include("/pages/template/head.html"){} %> <%
+ %>
+<script src="http://malsup.github.io/jquery.form.js"></script>
+<script type="text/javascript" src="static/component/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="static/lango/resume/resume.js"></script>
+<% }; var bodyContent = { %>
+<div class="all">
+	<div class="jianlititle">
+		<h2>投递简历</h2>
+		<div class="yulang">
+			<img alt="" src="static/lango/resume/image/yulan.png"><a id="yulanjianli" onclick="yulang('${BASE_PATH}')" target="_blank">预览简历</a>
+		</div>
+	</div>
+	<div style="clear: both;"></div>
+	<div id="basemessage1" class="maindiv" style="display: block;">
+		<div class="topdiv">
+			<form id="baseform" action="">
+				<% if(applicant!=null && applicant.id >0) { %> 
+				<input type="hidden" value="${applicant.id}" name="model.id" /> 
+				<% } else { %> 
+				<input type="hidden" value="0" name="model.id" /> 
+				<% } %>
+				<table>
+					<caption class="captionstype">基础信息</caption>
+					<tbody>
+						<tr>
+							<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">所属站点</td>
+							<td class="tdtwo"><select class="selectstyle"
+								name="model.province_site">
+									${flyfox.dictSelectValue('sitestype', applicant.province_site!'')  }
+							</select></td>
+							<td class="tdthree"><img alt=""
+								src="static/lango/resume/image/bitian.png">应聘岗位</td>
+							<td class="tdfour"><select class="selectstyle"
+								name="model.job">
+								${flyfox.dictSelectValue('jobType', applicant.job!'')  }
+							</select></td>
+						</tr>
+						<tr>
+							<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">姓名</td>
+							<td class="tdtwo"><input class="check" maxlength="40" type="text"
+								name="model.name" value="${applicant.name}" /></td>
+							<td class="tdthree"><img alt=""
+								src="static/lango/resume/image/bitian.png">性别</td>
+							<td class="tdfour"><input type="radio" name="model.sex"
+								style="border: 0px; width: 30px; height: 20px; margin-right: 13px;" value="男"
+								${applicant.sex== '男'? "checked":"" }
+							 checked />男 <input
+								type="radio" name="model.sex" ${applicant.sex==
+								'女' ? "checked":"" }
+								style="width: 30px;border: 0px; height: 20px; margin-right: 5px;"
+								value="女" /><span style="margin-right: 90px;">女</span></td>
+						</tr>
+						<tr>
+							<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">出生年月</td>
+							<td class="tdtwo"><input class="check" type="text"
+								name="model.birthday" value="${applicant.birthday}"
+								onclick="WdatePicker({dateFmt:'yyyy年MM月dd日',isShowClear:false});" />
+				          </td>
+							<td class="tdthree"><img alt=""
+								src="static/lango/resume/image/bitian.png">联系邮箱</td>
+								<% if(applicant!=null && applicant.id >0) { %> 
+								<td class="tdfour">
+								<input maxlength="40"  type="text" readonly="readonly"
+								    style="border: 0px;" name="model.email" value="${applicant.email}" /></td>
+									<% } else { %> 
+									<td class="tdfour"><input maxlength="40" class="checkemail" type="text"
+								      name="model.email" value="" /></td>
+			                 	<% } %>
+						</tr>
+						<tr>
+							<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">联系电话</td>
+							<td class="tdtwo"><input id="telephonecheck" type="text" maxlength="40"
+								name="model.telephone" value="${applicant.telephone}" /></td>
+							<td class="tdthree"><img alt=""
+								src="static/lango/resume/image/bitian.png">备用联系电话</td>
+							<td class="tdfour"><input id="standby_phonecheck" type="text" maxlength="40"
+								name="model.standby_phone" value="${applicant.standby_phone}" /></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+		<div class="bottomdiv">
+			<button id="basesave" class="bottonstyle">保存</button>
+		</div>
+	</div>
+	<div id="basemessage2" class="maindiv2" style="display: none;">
+		<div class="topdiv">
+			<table>
+				<caption class="captionstype">基础信息</caption>
+				<tbody>
+					<tr>
+						<td class="tdedit1"><img alt="" src="static/lango/resume/image/bitian.png">所属站点</td>
+						<td class="tdedit2"></td>
+						<td class="tdedit3"><img alt="" src="static/lango/resume/image/bitian.png">应聘岗位</td>
+						<td class="tdedit4"></td>
+					</tr>
+					<tr>
+						<td class="tdedit1"><img alt="" src="static/lango/resume/image/bitian.png">姓名</td>
+						<td class="tdedit2"></td>
+						<td class="tdedit3"><img alt="" src="static/lango/resume/image/bitian.png">性别</td>
+						<td class="tdedit4"></td>
+					</tr>
+					<tr>
+						<td class="tdedit1"><img alt="" src="static/lango/resume/image/bitian.png">出生年月</td>
+						<td class="tdedit2"></td>
+						<td class="tdedit3"><img alt="" src="static/lango/resume/image/bitian.png">联系邮箱</td>
+						<td class="tdedit4"></td>
+					</tr>
+					<tr>
+						<td class="tdedit1"><img alt="" src="static/lango/resume/image/bitian.png">联系电话</td>
+						<td class="tdedit2"></td>
+						<td class="tdedit3"><img alt="" src="static/lango/resume/image/bitian.png">备用联系电话</td>
+						<td class="tdedit4"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="bottomdiv" style="width: 100px;">
+			<img alt="" id="baseedit" src="static/lango/resume/image/bianji.png">
+		</div>
+	</div>
+	<br>
+	<div id="educationmessage1" class="maindiv"
+		style="height: 450px; display: block; border-bottom: 0px">
+		<div class="topdiv">
+			<form id="educationform" action="">
+				<% if(educationtype1!=null && educationtype1.id >0) { %> <input
+					type="hidden" name="model.id" value="${educationtype1.id}" /> <% }
+				else { %> <input type="hidden" value="0" name="model.id" /> <% } %>
+				<% if(educationtype1!=null && educationtype1.applicant_id>0) { %> <input
+					type="hidden" name="model.applicant_id"
+					value="${educationtype1.applicant_id}" /> <% } else { %> <input
+					type="hidden" value="0" name="model.applicant_id" /> <% } %> <input
+					type="hidden" value="1" name="model.types" />
+				<table>
+					<caption class="captionstype">教育背景</caption>
+					<tbody>
+						<tr>
+							<td style="padding-top: 5px;">第一专业</td>
+						</tr>
+						<tr>
+							<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">学校名称</td>
+							<td class="tdtwo"><input class="check" type="text" maxlength="40"
+								name="model.school_name" value="${educationtype1.school_name}" /></td>
+							<td class="tdthree"></td>
+							<td class="tdfour"></td>
+						</tr>
+						<tr>
+							<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">专业名称</td>
+							<td class="tdtwo"><input class="check" type="text" maxlength="40"
+								name="model.profession" value="${educationtype1.profession}" /></td>
+							<td class="tdthree"><img alt=""
+								src="static/lango/resume/image/bitian.png">学历</td>
+							<td class="tdfour"><select name="model.degree"
+								class="selectstyle">
+								  <option value="高中" ${educationtype1.degree=='高中'?'selected':''} >高中</option>
+							          <option value="大专" ${educationtype1.degree=='大专'?'selected':''} >大专</option>
+									<option value="本科" ${educationtype1.degree=='本科'?'selected':''} >本科</option>
+									<option value="硕士" ${educationtype1.degree=='硕士'?'selected':''} >硕士</option>
+									<option value="博士" ${educationtype1.degree=='博士'?'selected':''} >博士</option>
+									<option value="博士后" ${educationtype1.degree=='博士后'?'selected':''}>博士后</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">入学时间</td>
+							<td class="tdtwo"><input class="check" type="text"
+								name="model.admission_time"
+								value="${educationtype1.admission_time}"
+								onclick="WdatePicker({dateFmt:'yyyy年MM月dd日',isShowClear:false});" /></td>
+							<td class="tdthree"><img alt=""
+								src="static/lango/resume/image/bitian.png">毕业时间</td>
+							<td class="tdfour"><input class="check" type="text"
+								name="model.graduation_time"
+								value="${educationtype1.graduation_time}"
+								onclick="WdatePicker({dateFmt:'yyyy年MM月dd日',isShowClear:false});" /></td>
+						</tr>
+					</tbody>
+				</table>
+				<table style="margin-top: 30px;">
+					<tbody>
+						<tr>
+							<td style="padding-top: 5px;">第二专业</td>
+						</tr>
+						<tr>
+							<td class="tdone">学校名称</td>
+							<td class="tdtwo"><input type="text" name="school_name" maxlength="40"
+								value="${educationtype2.school_name}" /></td>
+							<td class="tdthree"></td>
+							<td class="tdfour"></td>
+						</tr>
+						<tr>
+							<td class="tdone">专业名称</td>
+							<td class="tdtwo"><input type="text" name="profession" maxlength="40"
+								value="${educationtype2.profession}" /></td>
+							<td class="tdthree">学历</td>
+							<td class="tdfour"><select name="degree" class="selectstyle">
+							        <option value="高中" ${educationtype2.degree=='高中'?'selected':''} >高中</option>
+							        <option value="大专" ${educationtype2.degree=='大专'?'selected':''} >大专</option>
+									<option value="本科" ${educationtype2.degree=='本科'?'selected':''}>本科</option>
+									<option value="硕士" ${educationtype2.degree=='硕士'?'selected':''}>硕士</option>
+									<option value="博士" ${educationtype2.degree=='博士'?'selected':''}>博士</option>
+									<option value="博士后" ${educationtype2.degree=='博士后'?'selected':''}>博士后</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td class="tdone">入学时间</td>
+							<td class="tdtwo"><input type="text" name="admission_time"
+								value="${educationtype2.admission_time}"
+								onclick="WdatePicker({dateFmt:'yyyy年MM月dd日',isShowClear:false});" /></td>
+							<td class="tdthree">毕业时间</td>
+							<td class="tdfour"><input type="text" name="graduation_time"
+								value="${educationtype2.graduation_time}"
+								onclick="WdatePicker({dateFmt:'yyyy年MM月dd日',isShowClear:false});" /></td>
+						</tr>
+					</tbody>
+				</table>
+				<% if(educationtype2!=null && educationtype2.id >0) { %> <input
+					type="hidden" name="id" value="${educationtype2.id}" /> <% } else
+				{ %> <input type="hidden" value="0" name="id" /> <% } %> <input
+					type="hidden" value="2" name="types" />
+			</form>
+		</div>
+		<div class="bottomdiv">
+			<button id="education_save" class="bottonstyle">保存</button>
+		</div>
+	</div>
+	<div id="educationmessage2" class="maindiv2"
+		style="height: 470px; display: none; border-bottom: 0px;">
+		<div class="topdiv">
+			<table>
+				<caption class="captionstype">教育背景</caption>
+				<tbody>
+					<tr>
+						<td style="padding-top: 5px;">第一专业</td>
+					</tr>
+					<tr>
+						<td class="tdedit1"><img alt="" src="static/lango/resume/image/bitian.png">学校名称</td>
+						<td class="tdedit2"></td>
+						<td class="tdedit3"></td>
+						<td class="tdedit4"></td>
+					</tr>
+					<tr>
+						<td class="tdedit1"><img alt="" src="static/lango/resume/image/bitian.png">专业名称</td>
+						<td class="tdedit2"></td>
+						<td class="tdedit3"><img alt="" src="static/lango/resume/image/bitian.png">学历</td>
+						<td class="tdedit4"></td>
+					</tr>
+					<tr>
+						<td class="tdedit1"><img alt="" src="static/lango/resume/image/bitian.png">入学时间</td>
+						<td class="tdedit2"></td>
+						<td class="tdedit3"><img alt="" src="static/lango/resume/image/bitian.png">毕业时间</td>
+						<td class="tdedit4"></td>
+					</tr>
+				</tbody>
+			</table>
+			<table style="margin-top: 30px;">
+				<tbody>
+					<tr>
+						<td style="padding-top: 5px;">第二专业</td>
+					</tr>
+					<tr>
+						<td class="tdedit1">学校名称</td>
+						<td class="tdedit2"></td>
+						<td class="tdedit3"></td>
+						<td class="tdedit4"></td>
+					</tr>
+					<tr>
+						<td class="tdedit1">专业名称</td>
+						<td class="tdedit2"></td>
+						<td class="tdedit3">学历</td>
+						<td class="tdedit4"></td>
+					</tr>
+					<tr>
+						<td class="tdedit1">入学时间</td>
+						<td class="tdedit2"></td>
+						<td class="tdedit3">毕业时间</td>
+						<td class="tdedit4"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="bottomdiv" style="width: 100px;">
+			<img alt="" id="education_edit" src="static/lango/resume/image/bianji.png">
+		</div>
+	</div>
+<% for(education in educationList){ if(education.types==1){ %>
+	<div id="educationmessage" class="educationdiv" style="height: 227px; border-top: 2px solid #ddd;border-bottom:0px;">
+		<br />
+		<div class="topdiv">
+			  <form action="">
+			  	<% if(education!=null && education.id >0) { %> 
+			  	<input type="hidden" name="model.id" value="${education.id}" /> 
+			  	<% }else { %> 
+			  	<input type="hidden" value="0" name="model.id" /> 
+			  	<% } %>
+				<% if(education!=null && education.applicant_id>0) { %> 
+				<input type="hidden" name="model.applicant_id" value="${education.applicant_id}" /> 
+				<% } else { %> 
+				<input type="hidden" value="0" name="model.applicant_id" /> 
+				<% } %> 
+				<table>
+					<tbody>
+						<tr>
+							<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">学校名称</td>
+							<td class="tdtwo"><input class="check" maxlength="40" type="text" name="model.school_name" value="${education.school_name}" /></td>
+							<td class="tdthree"></td>
+							<td class="tdfour"></td>
+						</tr>
+						<tr>
+							<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">专业名称</td>
+							<td class="tdtwo"><input class="check" type="text" maxlength="40"
+								name="model.profession" value="${education.profession}" /></td>
+							<td class="tdthree"><img alt=""
+								src="static/lango/resume/image/bitian.png">学历</td>
+							<td class="tdfour">
+							<select name="model.degree" class="selectstyle">
+							        <option value="高中" ${education.degree=='高中'?'selected':''} >高中</option>
+							        <option value="大专" ${education.degree=='大专'?'selected':''} >大专</option>
+									<option value="本科" ${education.degree=='本科'?'selected':''}>本科</option>
+									<option value="硕士" ${education.degree=='硕士'?'selected':''}>硕士</option>
+									<option value="博士" ${education.degree=='博士'?'selected':''}>博士</option>
+									<option value="博士后" ${education.degree=='博士后'?'selected':''}>博士后</option>
+							</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">入学时间</td>
+							<td class="tdtwo"><input class="check" type="text"
+								name="model.admission_time" value="${education.admission_time}"
+								onclick="WdatePicker({dateFmt:'yyyy年MM月dd日',isShowClear:false});" /></td>
+							<td class="tdthree"><img alt=""
+								src="static/lango/resume/image/bitian.png">毕业时间</td>
+							<td class="tdfour"><input class="check" type="text"
+								name="model.graduation_time" value="${education.graduation_time}"
+								onclick="WdatePicker({dateFmt:'yyyy年MM月dd日',isShowClear:false});" /></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+		<div class="bottomdiv">
+			<button class="bottonstyle"
+				onclick="oper.canceleducation($(this).parent().parent());"
+				style="margin-right: -230px; position: relative;">取消</button>
+			<button onclick="oper.saveeducation($(this).parent().parent());"
+				class="bottonstyle">保存</button>
+		</div>
+	</div>
+	<div id="educationedit" class="maindiv2"
+	style="height: 210px; display: none; border-top: 2px solid #ddd;border-bottom:0px;">
+	<br />
+	<div class="topdiv">
+		<table>
+			<tbody>
+				<tr>
+					<td class="tdedit1"><img alt="" src="static/lango/resume/image/bitian.png">学校名称</td>
+					<td class="tdedit2"></td>
+					<td class="tdedit3"></td>
+					<td class="tdedit4"></td>
+				</tr>
+				<tr>
+					<td class="tdedit1"><img alt="" src="static/lango/resume/image/bitian.png">专业名称</td>
+					<td class="tdedit2"></td>
+					<td class="tdedit3"><img alt="" src="static/lango/resume/image/bitian.png">学历</td>
+					<td class="tdedit4"></td>
+				</tr>
+				<tr>
+					<td class="tdedit1"><img alt="" src="static/lango/resume/image/bitian.png">入学时间</td>
+					<td class="tdedit2"></td>
+					<td class="tdedit3"><img alt="" src="static/lango/resume/image/bitian.png">毕业时间</td>
+					<td class="tdedit4"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="bottomdiv" style="width: 100px;">
+		<img alt="" onclick="oper.editeducation($(this).parent().parent());"
+			src="static/lango/resume/image/bianji.png">
+	</div>
+</div>
+ <% }} %>
+	<div id="adddiveducation" onclick="oper.addeducationone(this)"
+		class="add" style="display: none;">
+		<div class="addtop">
+			<span class="addcontent">添加教育背景+</span>
+		</div>
+	</div>
+	<br /> 
+<div id="personal_experience1" class="maindiv"
+	style="height: 380px;border-top: 2px solid #ddd;border-bottom:0px;">
+	<br>
+	<div class="topdiv">
+		<form id="personal_form" class="biaozhi1" action="">
+		<% if(experience1!=null && experience1.id >0) { %>
+			<input type="hidden" name="model.id" value="${experience1.id}" />
+			<input type="hidden" value="${applicant_id}" name="applicant_id" />
+		<% } else { %> 
+			<input type="hidden" value="0" name="model.id" />
+			<input type="hidden" value="0" name="applicant_id" />
+			<% } %>
+			<table>
+				<caption class="captionstype">
+					经历<span style="font-size: 15px; color: #333;">(经历包括技术项目、校园活动、社会实践、公司实习等经历)</span>
+				</caption>
+				<tbody>
+					<tr>
+						<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">名称</td>
+						<td class="tdtwo"><input class="check" type="text" maxlength="40" value="${experience1.name}"
+							name="model.name" /></td>
+						<td class="tdthree"><img alt="" src="static/lango/resume/image/bitian.png">开始结束时间</td>
+						<td class="tdfour"><input placeholder="2016.01.02-2016.03.05" value="${experience1.time}"
+							class="check" type="text" name="model.time" /></td>
+					</tr>
+					<tr>
+						<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">介绍</td>
+						<td><textarea class="checkep" name="model.description" maxlength="300"
+								style="width: 660px; height: 90px;margin-left: 100px;">${experience1.description}</textarea></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">成果或心得</td>
+						<td><textarea class="checkep" name="model.achievement"  maxlength="300"
+								style="width: 660px; height: 90px; margin-left: 100px;">${experience1.achievement}</textarea></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+	<div class="bottomdiv">
+			<button id="personal_save" class="bottonstyle">保存</button>
+	</div>
+</div>
+<div id="personal_experience2" class="maindiv"
+	style="height: auto; border-bottom: 0px;border-top: 2px solid #ddd; display: none">
+	<br>
+	<div class="topdiv">
+		<table>
+			<caption class="captionstype">
+				经历<span style="font-size: 15px; color: #333;">(经历包括技术项目、校园活动、社会实践、公司实习等经历)</span>
+			</caption>
+			<tbody>
+				<tr>
+					<td class="tdedit1"><img alt="" src="static/lango/resume/image/bitian.png">名称</td>
+					<td class="tdedit2"></td>
+					<td class="tdedit3"><img alt="" src="static/lango/resume/image/bitian.png">开始结束时间</td>
+					<td class="tdedit4"></td>
+				</tr>
+				<tr>
+					<td class="tdedit1"><img alt="" src="static/lango/resume/image/bitian.png">介绍</td>
+					<td><div
+							style="text-align: left; word-break: break-word; width: 640px; margin-left: 90px;"></div></td>
+				</tr>
+				<tr>
+					<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">成果或心得</td>
+					<td><div
+							style="text-align: left; word-break: break-word; width: 640px; margin-left: 90px;"></div></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="bottomdiv" style="width: 100px;">
+		<img alt="" id="personal_edit" src="static/lango/resume/image/bianji.png">
+	</div>
+	<div style="clear: both;"></div>
+	<br />
+	<br />
+</div>
+<% for(experience in experienceList){ %>
+<div id="personal_experience" class="experiencediv" style="height: 390px;border-top: 2px solid #ddd;border-bottom:0px;">
+								<div class="topdiv" style="margin-top: 45px;">
+									<form id="personal_form" action="">
+									<% if(experience!=null && experience.id >0) { %>
+		                 	<input type="hidden" name="model.id" value="${experience.id}" />
+			              <input type="hidden" value="${applicant_id}" name="applicant_id" />
+		                  <% } else { %> 
+		                      	<input type="hidden" value="0" name="model.id" />
+		                   	<input type="hidden" value="0" name="applicant_id" />
+			                   <% } %>
+										<table>
+											<tbody>
+												<tr>
+													<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">名称</td>
+													<td class="tdtwo"><input class="check" type="text" name="model.name" value="${experience.name}" maxlength="40"
+														/></td>
+												<td class="tdthree"><img alt=""
+														src="static/lango/resume/image/bitian.png">开始结束时间</td>
+												<td class="tdfour"><input placeholder="2016.01.02-2016.03.05" class="check" type="text" name="model.time" value="${experience.time}"
+														 /></td>
+												</tr>
+												<tr>
+													<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">介绍</td>
+													<td><textarea class="checkep"  name="model.description"  maxlength="300"
+															style="width: 660px;height: 90px;margin-left: 100px;">${experience.description}</textarea></td>
+						                        <td></td>
+												</tr>
+												<tr>
+													<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">成果或心得</td>
+												<td ><textarea class="checkep" name="model.achievement"  maxlength="300"
+														style="width: 660px;height: 90px;margin-left: 100px;">${experience.achievement}</textarea></td>
+						                       <td></td>
+												</tr>
+											</tbody>
+										</table>
+									</form>
+								</div>
+								<div class="bottomdiv">	
+						            <button class="bottonstyle" onclick="oper.cancelexperience($(this).parent().parent());" style="margin-right:-230px;margin-top: 15px;position: relative;">取消</button>			
+						            <button onclick="oper.saveexperience($(this).parent().parent());" class="bottonstyle">保存</button>	
+						     	</div>  
+		  </div>
+	<div id="personal_edit" class="maindiv2" style="height:auto;display: none;border-top: 2px solid #ddd;border-bottom:0px;">
+							<div class="topdiv" style="margin-top: 45px;">
+									<table>
+										<tbody>
+										<tr>
+												<td class="tdedit1"><img alt="" src="static/lango/resume/image/bitian.png">名称</td>
+												<td class="tdedit2"></td>
+												<td class="tdedit3"><img alt=""src="static/lango/resume/image/bitian.png">开始结束时间</td>
+												<td class="tdedit4"></td>
+											</tr>
+											<tr>
+												<td class="tdedit1"><img alt="" src="static/lango/resume/image/bitian.png">介绍</td>
+												<td><div style="text-align: left;word-break: break-word;width: 640px;height:auto; margin-left: 90px;"></div></td>
+											</tr>
+											<tr>
+												<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">成果或心得</td>
+												<td><div style="text-align: left;word-break: break-word;width: 640px;height:auto; margin-left: 90px;"></div></td>
+											</tr>
+										</tbody>
+									</table>
+							</div>
+							<div class="bottomdiv" style="width: 100px;">
+						           <img alt="" style="margin-top: 15px;" onclick="oper.editpersonal($(this).parent().parent());" src="static/lango/resume/image/bianji.png">
+							</div>
+						   <div style="clear: both;"></div>
+						     <br/> <br/> 
+						      </div>
+	 <% } %>		
+<div id="adddivexperence" onclick="oper.addexperience(this)" class="add"
+	style="display: none;">
+	<div class="addtop">
+		<span class="addcontent">添加活动经历+</span>
+	</div>
+</div>
+	<br />
+<div id="self_recommendation1" class="maindiv"
+	style="height: 990px;border-top: 2px solid #ddd;">
+	<br />
+	<div class="topdiv">
+		<form id="recommendation_form" action="">
+			<% if(applicant!=null && applicant.id >0) { %> <input type="hidden"
+					value="${applicant.id}" name="model.id" /> <% } else { %> <input
+					type="hidden" value="0" name="model.id" /> <% } %>
+			<table>
+				<caption class="captionstype">自我推荐</caption>
+				<tbody>
+					<tr>
+						<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">获奖情况</td>
+						<td><textarea class="checkep" name="model.awards" maxlength="500"
+								style="width: 660px; height: 200px; margin-left: 100px;">${applicant.awards}</textarea></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">特点与优点</td>
+						<td><textarea class="checkep" name="model.advantages" maxlength="500" style="width: 660px; height: 200px; margin-left: 100px;">${applicant.advantages}</textarea></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="tdone">其他</td>
+						<td><textarea id="others" name="model.other" style="width: 660px; height: 200px; margin-left: 100px;">${applicant.other}</textarea></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+		<table>
+		<tr>
+		  <td class="tdone">上传附件</td>
+		  <td id="addfile" style="width: 80px;"></td>
+		   <% if(title1!=null) { %>
+		  <td><img id="file1" alt="" title="${title1}" class="wenjian" src="static/lango/resume/image/wenjian.png"><br><div  id="filecontent1" style="overflow: hidden;text-overflow: ellipsis;width: 50px;height: 20px;margin-left: 15px;" >${title1}</div>
+		   <a onclick="oper.cancelfile(this,$('#file_upload').find('input').eq(2).val(),$('#file_upload').find('input').eq(0).val())" style="margin-right: 20px;color: #A3A9AF">删除</a>
+		  </td>
+		    <% } else { %> 
+		     <td class="filekuang" ><img id="file1" alt="" title=""  class="wenjian" src="static/lango/resume/image/wenjian.png"><br><div id="filecontent1" style="overflow: hidden;text-overflow: ellipsis;width: 50px;height: 20px;margin-left: 15px;" ></div>
+		   <a onclick="oper.cancelfile(this,$('#file_upload').find('input').eq(2).val(),$('#file_upload').find('input').eq(0).val())" style="margin-right: 20px;color: #A3A9AF">删除</a>
+		  </td>
+		    <% } %>
+		   <% if(title2!=null) { %>
+		  <td ><img id="file2" alt="" title="${title2}"  class="wenjian" src="static/lango/resume/image/wenjian.png"><br><div id="filecontent2" style="overflow: hidden;text-overflow: ellipsis;width: 50px;height: 20px;margin-left: 15px;" >${title2}</div>
+		   <a onclick="oper.cancelfile(this,$('#file_upload').find('input').eq(3).val(),$('#file_upload').find('input').eq(0).val())" style="margin-right: 20px;color: #A3A9AF">删除</a>
+		  </td>
+		   <% } else { %> 
+		    <td class="filekuang" ><img id="file2" alt="" title=""  class="wenjian" src="static/lango/resume/image/wenjian.png"><br><div id="filecontent2" style="overflow: hidden;text-overflow: ellipsis;width: 50px;height: 20px;margin-left: 15px;" ></div>
+		   <a onclick="oper.cancelfile(this,$('#file_upload').find('input').eq(3).val(),$('#file_upload').find('input').eq(0).val())" style="margin-right: 20px;color: #A3A9AF">删除</a>
+		  </td>
+		  <% } %>
+		    <% if(title3!=null) { %>
+		  <td><img id="file3" alt="" title="${title3}"  class="wenjian" src="static/lango/resume/image/wenjian.png"><br><div id="filecontent3" style="overflow: hidden;text-overflow: ellipsis;width: 50px;height: 20px;margin-left: 15px;" >${title3}</div>
+		   <a onclick="oper.cancelfile(this,$('#file_upload').find('input').eq(4).val(),$('#file_upload').find('input').eq(0).val())" style="margin-right: 20px;color: #A3A9AF">删除</a>
+		  </td>
+		   <% } else { %> 
+		   <td class="filekuang"><img id="file3" alt="" title=""  class="wenjian" src="static/lango/resume/image/wenjian.png"><br><div id="filecontent3" style="overflow: hidden;text-overflow: ellipsis;width: 50px;height: 20px;margin-left: 15px;" ></div>
+		   <a onclick="oper.cancelfile(this,$('#file_upload').find('input').eq(4).val(),$('#file_upload').find('input').eq(0).val())" style="margin-right: 20px;color: #A3A9AF">删除</a>
+		  </td>
+		  	<% } %>
+		  <td><div style=" width: 32px;margin-left:20px; height: 32px; background-image: url('static/lango/resume/image/shangchuan.png');">
+		  <form id="file_upload" action="" method="post" enctype="multipart/form-data">
+		  <% if(applicant_id!=null && applicant_id >0) { %>
+			 <input type="hidden" value="${applicant_id}" name="applicant_id">
+		  <% } else { %> 
+		   <input type="hidden" value="0" name="applicant_id">
+			<% } %>
+		   <% if(count!=null && count >0) { %>
+			 <input type="hidden" value="${count}" name="count">
+		  <% } else { %> 
+		   <input type="hidden" value="0" name="count">
+			<% } %>
+			 <% if(file_id1!=null && file_id1 >0) { %>
+			 <input type="hidden" value="${file_id1}" name="file_id1">
+		  <% } else { %> 
+		    <input type="hidden" value="0" name="file_id1">
+			<% } %>
+		    <% if(file_id2!=null && file_id2 >0) { %>
+			 <input type="hidden" value="${file_id2}" name="file_id2">
+		  <% } else { %> 
+		    <input type="hidden" value="0" name="file_id2">
+			<% } %>
+			<% if(file_id3!=null && file_id3 >0) { %>
+			 <input type="hidden" value="${file_id3}" name="file_id3">
+		  <% } else { %> 
+		    <input type="hidden" value="0" name="file_id3">
+			<% } %>
+			<input id="fileinput" type="file" style="width: 32px; overflow: hidden; height: 32px; opacity: 0;" name="model.file_url" />
+		  </form>
+			</div>
+		 </td>
+		  <td><button type="button" class="bottonstyle"  style="margin-left:20px;"  id="upload">上传</button></td>
+		  </tr>
+		</table>
+		<br>
+		<button id="consummation" class="bottonstyle"
+			style="width: 135px; margin-left: 470px;">完成并进行测评</button>
+	</div>
+</div>
+<br>
+
+<div id="self_recommendation2" class="maindiv"
+	style="height: auto; display: none;border-top: 2px solid #ddd;">
+	<br/>
+	<div class="topdiv">
+		<table>
+			<caption class="captionstype">自我推荐</caption>
+			<tbody>
+				<tr>
+					<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">获奖情况</td>
+					<td><div
+							style="text-align: left; word-break: break-word; width: 640px; height: auto; margin-left: 120px;"></div></td>
+				</tr>
+				<tr>
+					<td class="tdone"><img alt="" src="static/lango/resume/image/bitian.png">特点与优点</td>
+					<td><div
+							style="text-align: left; word-break: break-word; width: 640px; height: auto; margin-left: 120px;"></div></td>
+				</tr>
+				<tr>
+					<td class="tdone">其他</td>
+					<td><div
+							style="text-align: left; word-break: break-word; width: 640px; height: auto; margin-left: 120px;"></div></td>
+				</tr>
+				<tr>
+				<td class="tdone">上传附件</td>
+				<td>
+				<div style="margin-left:100px;">
+				    <div class="filekuang" style="float:left;">
+				      <img id="file4"  alt="" title=""  style="margin-left: 10px;width: 64px;height: 64px;margin-top: 10px;" src="static/lango/resume/image/wenjian.png">
+				        <br>
+				      <div id="filecontent4" style="overflow: hidden;text-overflow: ellipsis;width: 50px;height: 20px;margin-left: 15px;" ></div>
+				     </div>
+				    <div class="filekuang" style="float:left;">
+				       <img id="file5"  alt="" title=""  style="width: 64px;height: 64px;margin-top: 10px;" src="static/lango/resume/image/wenjian.png">
+				       <br>
+				    <div id="filecontent5" style="overflow: hidden;text-overflow: ellipsis;width: 50px;height: 20px;margin-left: 15px;" ></div>
+				    </div>
+				<div class="filekuang" style="float:left;">
+				       <img id="file6"  alt="" title=""  style="margin-left: 10px;width: 64px;height: 64px;margin-top: 10px;" src="static/lango/resume/image/wenjian.png">
+				       <br>
+				       <div id="filecontent6" style="overflow: hidden;text-overflow: ellipsis;width: 50px;height: 20px;margin-left: 15px;" ></div>
+				 </div>
+				</div></td>
+				</tr>
+			</tbody>
+		</table>
+		<br><br>
+	</div>
+	<div class="bottomdiv" style="width: 100px;">
+		<img alt="" id="recommendation_edit" src="static/lango/resume/image/bianji.png">
+	</div>
+	<div style="clear: both;"></div>
+	<br />
+	<br />
+</div>
+<br />
+</div>
+<%}; %> <%
+layout("/pages/template/_layout.html",{head:headContent,body:bodyContent}){
+%> <%} %>

@@ -1,0 +1,222 @@
+<% var headContent = { include("/pages/template/head.html"){} %>
+<script type="text/javascript">
+	var oper;
+	jQuery(function($) {
+		// 页面方法
+		oper = {
+			width : 1200,
+			height : 900,
+			form : document.form1,
+			list : function() {
+				var url = 'system/resume/list';
+				this.form.action = url;
+				this.form.submit();
+			},
+			view : function(o,id) {
+			   $(o).parent().siblings(".t_isread").html("已读");  //设置已读
+				var url = 'system/resume/detail/'+id;
+				var title = '简历信息';
+				Iframe(url, this.width, this.height, title, false, false, false, EmptyFunc);
+			},
+			exporttoexcel : function(id) {  //导出excel
+				var url = 'system/resume/ExportToExcel/'+id;
+				form1.action = url;
+				form1.submit();
+			},
+			wordDownload:function(id){
+				var url = 'system/resume/wordDownload/'+id;
+				form1.action = url;
+				form1.submit();
+			},
+			verifymore : function(id){ //审查(多个)通过函数
+				var url = 'system/resume/verifymore/'+id;
+				var title = '确认审核通过？';
+				Confirm(title, function() {
+					form1.action = url;
+					form1.submit();
+				});
+			},
+			closeIframe : function(){  //关闭Iframe
+				$(".ymPrompt_close").click();
+				oper.list();
+			},
+			delmore : function(id){  //删除多个
+				var url = 'system/resume/deletemore/'+id;
+				var title = '确认要删除？';
+				Confirm(title, function() {
+					form1.action = url;
+					form1.submit();
+				});
+			},
+			del : function(id) {//删除单个
+				var url = 'system/resume/delete/'+id;
+				var title = '确认要删除？';
+				Confirm(title, function() {
+					form1.action = url;
+					form1.submit();
+				});
+			}
+		};
+		$("#btnCheckAll").bind("click", function () {//全选响应事件
+	    	if($("#btnCheckAll").prop('checked')==true){
+	    		$("[name = chkItem]:checkbox").prop("checked", true);	  //全选
+	    	}else{
+	    		$("[name = chkItem]:checkbox").prop("checked", false);//取消全选
+	    	}
+	    });
+		 //导出信息到excel表
+	    $("#exporttoexcel").click(function(){
+	    	var id="";
+	    	$("[name = chkItem]:checked").each(function() {
+	    		  id+=$(this).parent().next().html()+",";
+	        });
+	    	if(id==""){
+	    		alert("请点击复选框选择删除项");
+	    	}else{
+	    		oper.exporttoexcel(id);
+	    	}
+	    });
+	    //删除多个信息
+	    $("#removemore").click(function(){
+	    	var id="";
+	    	$("[name = chkItem]:checked").each(function() {
+	    		  id+=$(this).parent().next().html()+",";
+	        });
+	    	if(id==""){
+	    		alert("请点击复选框选择删除项");
+	    	}else{
+	    		oper.delmore(id);
+	    	}
+	    });
+	    $("#b_verify_more").click(function(){  //审核通过处理事件
+	    	var id="";
+	    	$("[name = chkItem]:checked").each(function() {
+	    		  id+=$(this).parent().next().html()+",";
+	        });
+	    	if(id==""){
+	    		alert("请点击复选框选择审核通过项");
+	    	}else{
+	    		oper.verifymore(id);
+	    	}
+	    });
+		//显示Menu索引
+		showMenu('page_system');
+		showMenu('page_resume');
+	});
+	//分页
+	var paginator = function(page) {
+		oper.list();
+	};
+</script>
+<% }; var bodyContent = { %>
+<form id="form1" name="form1" action="" method="post"
+	class="form-inline" role="form">
+	<!-- 菜单 -->
+		<% include("/static/component/include/menu.html"){} %>
+	<div class="tableSearch">
+		<% //查询列表 %>
+		<div class="form-group">
+			<select name="attr.number" class="form-control">
+				<option value="30">30页每条</option>
+				<option value="50">50页每条</option>
+				<option value="150">150页每条</option>
+				<option value="200">200页每条</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<select name="attr.province_site" class="form-control">
+			 <option value="-1">选择站点</option>
+				${flyfox.dictSelectValue('sitestype', model.province_site!'')  }
+			</select>
+		</div>
+		<div class="form-group">
+			<select name="attr.job" class="form-control">
+			     	<option value="-1">岗位</option>
+				${flyfox.dictSelectValue('jobType', model.job!'')  }
+			</select>
+		</div>
+		<div class="form-group">
+			<select name="attr.select" class="form-control">
+				<option value="-1">搜索类型</option>
+				<option value="telephone">手机号码</option>
+				<option value="account_number">测评账号</option>
+				<option value="	school_name">学校</option>
+				<option value="name">姓名</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="attr.content"
+				value="${attr.content}" placeholder="请输入搜索内容" required='required' />
+		</div>
+		<button type="button" class="btn btn-default" onclick="oper.list();"
+			name="search">
+			<span class="glyphicon glyphicon-search"></span> 查 询
+		</button>
+		<button type="button" class="btn btn-default" onclick="resetForm();">
+			<span class="glyphicon glyphicon-refresh"></span> 重 置
+		</button>
+		<button type="button" id="exporttoexcel" style="float: right;"
+			class="btn btn-default" onclick="resetForm();">
+			<span class="glyphicon glyphicon-export"></span> 导出为excel表格
+		</button>
+	</div>
+	<!-- 数据列表 -->
+	<table class="table table-striped table-bordered table-hover">
+		<thead>
+			<tr>
+				<% // 列表头部 %>
+				<th><input id="btnCheckAll" name="btnCheckAll" type="checkbox"></th>
+				<th>ID</th>
+				<th name="province_site" class="sorting">站点</th>
+				<th name="job" class="sorting">应聘岗位</th>
+				<th name="school_name" class="sorting">毕业学校</th>
+				<th name="name" class="sorting">姓名</th>
+				<th name="telephone" class="sorting">联系电话</th>
+				<th name="isread" class="sorting">状态</th>
+				<th name="isverify" class="sorting">审核状态</th>
+				<th name="create_time" class="sorting">创建时间</th>
+				<th style="width: 300px;">管理操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for(item in page.list){ %>
+			<tr>
+				<td><input name="chkItem" id="chkItem" type="checkbox"></td>
+				<td>${item.id}</td> 
+				<td>${item.province_site}</td>
+				<td>${item.job}</td>
+				<td>${item.school_name}</td>
+				<td>${item.name}</td>
+				<td>${item.telephone}</td>
+				<td class="t_isread"><% if(item.isread==1) { %> 已读 <% } %> <%
+					if(item.isread==0) { %> 未读 <% } %></td>
+				<td ><% if(item.isverify==1) { %> 已审核<% } %> 
+				     <% if(item.isverify==0) { %>未审核<% } %>
+				      <% if(item.isverify==2) { %>审核未通过<% } %>
+				</td>	
+				<td>${item.create_time}</td>
+				<td><a href="javascript:void(0);"
+					class="btn btn-sm btn-success"
+					onclick="oper.view(this,${item.id});">简历信息</a> <a
+					href="javascript:void(0);" class="btn btn-sm btn-primary"
+					onclick="oper.wordDownload(${item.id});">下载</a> <a
+					href="javascript:void(0);" class="btn btn-sm btn-danger"
+					onclick="oper.del(${item.id});">删除</a></td>
+			</tr>
+			<% } %>
+		</tbody>
+	</table>
+	<br />
+	<button type="button" id="removemore" class="btn btn-default">
+		<span class="glyphicon glyphicon-remove"></span> 删除
+	</button>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<button type="button" id="b_verify_more" class="btn btn-default">
+		<span class="glyphicon glyphicon-ok"></span>审核通过
+	</button>
+	<br /> <br /> <%include("/static/component/include/paginator.html"){}
+	%>
+</form>
+<%}; %> <%
+layout("/pages/template/_layout.html",{head:headContent,body:bodyContent}){
+%> <%} %>

@@ -1,0 +1,1596 @@
+	/* Centered texts in each section
+	* --------------------------------------- */
+    body,div,ul,li,p,dl,dt,dd,h1,a,img{padding: 0;margin: 0;}
+
+	.section{
+		text-align:center;
+		background-size: cover;
+		
+	}
+
+	.section{
+		/* background-image: url(bg1.jpg); */
+		padding: 2% 0 0 0;
+	}
+
+	.section p{
+		 color: #FFF;
+	}
+
+	/* Defining each sectino background and styles
+	* --------------------------------------- */
+	#fullpage {
+	  font: 400 18px/1.62 "Georgia", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
+	  color: #111;
+	}
+    
+    #fp-nav ul li a .active{      /*加入的*/
+        /*background: red;*/
+    }
+    
+      /*-----------------new nav----------------------*/
+     .zjh-nav{
+         width: 100%;
+         height: 60px;
+         /*background: rgba(226, 226, 226, 0.88);*/        /*ie8不兼容*/
+         /*background: url(../testIMG/nav.png) repeat;*/
+         position: absolute;
+         top: 0px;
+         min-width: 1000px;
+     }
+     
+    .zjh-nav-container{
+       /* background: blue;*/
+        min-width: 1000px;
+        width: 1000px;
+    }
+
+    .zjh-nav-container .nav-left{
+        width: 120px;
+        float: left;
+        line-height: 62px;
+        font-size: 17px;
+        padding-left: 10px;
+    }
+    
+    .zjh-nav-container .nav-left a img{
+        margin-top: -8px;
+    }
+    
+    .zjh-nav-container .nav-right{
+        width: 780px;
+        float: left;
+        /*background: yellow;*/
+    }
+    
+     .zjh-nav-container .nav-right .nav-ul{
+         list-style: none;
+         clear: right;
+     }
+
+     .zjh-nav-container .nav-right .nav-ul li{
+         float: left;
+         width: 130px;
+         height: 60px;
+         font-size: 15px;
+         font-weight: 600;
+         line-height: 62px;
+         /*border: 1px solid #000;*/
+     }
+     
+      .zjh-nav-container .nav-right .nav-ul #nav_j408{    /*首页*/
+          padding: 0px 0px 0px 37px;
+      }
+
+     .zjh-nav-container .nav-right .nav-ul li span{
+         display: block;
+         width: 15px;
+         height: 15px;
+         float: left;
+         margin: 23px 6px 0px 0px;
+     }
+     .zjh-nav-container  a{
+         text-decoration: none;
+         color: #000;
+     }
+     .navActive a{
+         color: rgb(63, 179, 60);
+     }
+     .navActive span{
+         /*background: rgb(63, 179, 60);*/       /*前面有没有方块*/
+     }
+
+   #login{
+       float: right;
+       width: auto;
+       height: 30px;
+       font-size: 15px;
+       font-weight: 600;
+       text-align: center;
+       line-height: 30px;
+       margin: 15px 10px 0px 0px;
+   }
+#login a{
+    width: 50px;
+    height: 30px;
+    text-decoration: none;
+    color: #000;
+}
+
+#login a:hover{
+    color: green;
+}
+    /*-------------------二维码-----------------------*/
+#scode{
+    width: 130px;
+    height: 177px;
+    /*background: green;*/
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    overflow: hidden;
+}
+
+#scodeContainer{
+    width: 130px;
+    height: 354px;
+    background: green;
+}
+
+#con1{
+    width: 131px;
+    height: 177px;
+}
+
+#con1 img{
+    width: 120px;
+    height: 120px;
+    margin: 5px;
+}
+
+#con1p1{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 12px;
+}
+#con1p2{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+}
+
+#con2{
+    width: 131px;
+    height: 177px;
+    background: rgba(199, 71, 71, 1);
+    text-align: center;
+    padding-top: 14px;
+}
+
+#con2 p{
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/*#con2 p:nth-of-type(2){
+    font-size: 30px;
+    margin: 23px 0px;
+}*/
+
+    /*-------------------投递---------------------*/
+    #send{
+    position: absolute;
+    bottom: 50px;
+    /*background: url(../testIMG/send.png) no-repeat;*/
+    text-decoration: none;
+    right: 20px;
+    display: inline-block;
+    cursor: pointer;
+    color: #fff;
+    height: 85px;
+    width: 85px;
+    border-radius: 50%;
+    padding-top: 23px;
+    padding-left: 23px;
+    font-weight: 600;
+    font-size: 18px;
+    }
+
+    /*#send:hover{
+        background: url(../testIMG/sendHover.png) no-repeat;
+    }*/
+    
+    .zjh-footer{
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        color: white;
+    }
+    
+    
+    
+    /*------------------岗位-------------------*/    
+    #section3{position: relative;padding: 0px;margin: 0px;}
+    
+    /*#sec3textdiv{
+        margin: 0 auto;
+        height: 100%;
+        background: yellow;
+    }*/
+     #sec31{
+         /*background: yellow;*/
+         width: 100%;
+         height: 100px;
+     }
+
+    #sec32{
+        /* background: red;*/
+         width: 100%;
+         height: 100px;
+     }
+    
+    .section3Container{
+        position: relative;
+        /*background: url(../testIMG/47.png) repeat;*/
+        width: 1100px;
+        height: 272px;
+        margin: 0px auto;
+        /*padding: 0px 0px;*/
+        padding-top: 25px;
+        /*position: absolute;*/
+    
+    }
+
+
+    .section3Container .left-list{
+        width: 1100px;
+        /*border: 1px solid #000;*/
+        overflow: hidden;
+        padding: 0px;
+        /*background: yellow;*/
+        margin: 0px 0px 20px 0px;
+        border-bottom: 1px solid #7F8283;
+        
+    }
+    
+    .section3Container .left-list div{
+        float: left;
+        width: 100px;
+        height: 35px;
+        cursor: pointer;
+        padding-top: 0px;
+        letter-spacing: 6px;
+        padding-left: 4px;
+        /*background: transparent url(../testIMG/unselected.png) no-repeat -6px 30px;*/
+        margin-bottom: 0px;
+    }
+
+#listOfDev{
+                  margin-left: 85px;
+    }
+
+#listOfMan{
+                  margin-left: 310px;
+    }
+
+#listOfSup{
+                  margin-left: 310px;
+    }
+
+#section3 .left-list .active,#section3 .left-list-2 .active{
+    /*background: transparent url(../testIMG/unselected.png) no-repeat -6px 30px;*/
+}
+    
+   /* #section3 .left-list div:hover{
+        background: rgba(38, 107, 110, 0.76);
+    }*/
+
+/*----------------压缩的情况-------------------------*/
+#section3 .left-list-2{
+    width: 110px;
+        /*border: 1px solid #000;*/
+        overflow: hidden;
+        padding: 0px;
+        /*background: yellow;*/
+        margin-left: 60px;
+        height: 60px;
+}
+
+#section3 .left-list-2 div{
+        float: left;
+        width: 100px;
+        height: 35px;
+        cursor: pointer;
+        padding-top: 0px;
+        letter-spacing: 6px;
+        padding-left: 4px;
+        /*background: transparent url(../testIMG/unselected.png) no-repeat -6px 30px;*/
+        margin-bottom: 0px;
+        margin-left: 0px;
+    }
+
+#myActive{
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background: url(../testIMG/selected.png);
+    top: 55px;
+    left: 85px;
+}
+  /*－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/  
+   .section3Container .content{
+        width: 1012px;
+        /*height: 145px;*/
+        height: 191px;
+        /*background: red;*/
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+    
+    .section3Container .btn-left{
+        float: left;
+        /*height: 145px;
+        width: 30px;
+        background: transparent url(../testIMG/img003.png) no-repeat 0px -100px;*/    /*transparent表示透明*/
+        height: 40px;
+        width: 30px;
+        background: transparent url(../testIMG/img003.png) no-repeat -740px 0px;
+        margin: 38px 0px 0px 0px;
+    }
+    .section3Container .btn-right{
+      /*height: 145px;
+        width: 30px;
+        background: transparent url(../testIMG/img003.png) no-repeat -975px -100px;    transparent表示透明*/
+        float: left;
+        height: 40px;
+        width: 30px;
+        background: transparent url(../testIMG/img003.png) no-repeat -812px 0px;
+        margin: 38px 0px 0px 0px;
+    }
+    .section3Container .middle{
+       height: 145px;
+        width: 952px; 
+        float: left;
+        overflow: hidden;
+        /*border: 1px solid #000;
+        background: yellow;*/
+    }
+    #middleContainer{
+        width: 3120px;
+       /* border: 1px solid #000;
+        background: blue;*/
+        overflow: hidden;       /*ie8兼容性*/
+    }
+    
+    #middleContainer div{
+        clear: both;
+        /*border: 1px solid #000;*/
+        /*background: blue;*/
+    }
+    .middle ul li{
+        float: left;
+        width: 112px;
+        height: 112px;
+        display: block;
+        /*background: transparent url(../testIMG/img003.png) no-repeat -58px -100px;*/
+        /*border-radius: 50%;*/       /*ie8不支持*/
+        /*border: 1px solid #ccc;*/
+        margin: 0px 12px 0px 12px;
+        padding: 0px;
+        margin-bottom: 100px;
+        cursor: pointer;
+        padding-top: 110px;
+    }
+
+/*************************图标***************************/
+   
+      #li1_1{
+          background: transparent url(../testIMG/23.png) no-repeat;
+      }
+      #li1_1:hover{
+          background: transparent url(../testIMG/23a.png) no-repeat;
+      }
+static/lango/testIMG/23.png
+#li1_2{
+          background: transparent url(../testIMG/14.png) no-repeat;
+      }
+      #li1_2:hover{
+          background: transparent url(../testIMG/14a.png) no-repeat;
+      }
+#li1_3{
+          background: transparent url(../testIMG/11.png) no-repeat;
+      }
+      #li1_3:hover{
+          background: transparent url(../testIMG/11a.png) no-repeat;
+      }
+
+#li1_4{
+          background: transparent url(../testIMG/17.png) no-repeat;
+      }
+      #li1_4:hover{
+          background: transparent url(../testIMG/17a.png) no-repeat;
+      }
+
+#li1_5{
+          background: transparent url(../testIMG/26.png) no-repeat;
+      }
+      #li1_5:hover{
+          background: transparent url(../testIMG/26a.png) no-repeat;
+      }
+
+#li1_6{
+          background: transparent url(../testIMG/2.png) no-repeat;
+      }
+      #li1_6:hover{
+          background: transparent url(../testIMG/2a.png) no-repeat;
+      }
+
+#li1_7{
+          background: transparent url(../testIMG/20.png) no-repeat;
+      }
+      #li1_7:hover{
+          background: transparent url(../testIMG/20a.png) no-repeat;
+      }
+
+#li1_8{
+          background: transparent url(../testIMG/1.png) no-repeat;
+      }
+      #li1_8:hover{
+          background: transparent url(../testIMG/1a.png) no-repeat;
+      }
+
+#li1_9{
+          background: transparent url(../testIMG/12.png) no-repeat;
+      }
+      #li1_9:hover{
+          background: transparent url(../testIMG/12a.png) no-repeat;
+      }
+
+#li2_1{
+          background: transparent url(../testIMG/13.png) no-repeat;
+      }
+      #li2_1:hover{
+          background: transparent url(../testIMG/13a.png) no-repeat;
+      }
+
+#li2_2{
+          background: transparent url(../testIMG/22.png) no-repeat;
+      }
+      #li2_2:hover{
+          background: transparent url(../testIMG/22a.png) no-repeat;
+      }
+
+#li2_3{
+          background: transparent url(../testIMG/27.png) no-repeat;
+      }
+      #li2_3:hover{
+          background: transparent url(../testIMG/27a.png) no-repeat;
+      }
+
+#li2_4{
+          background: transparent url(../testIMG/18.png) no-repeat;
+      }
+      #li2_4:hover{
+          background: transparent url(../testIMG/18a.png) no-repeat;
+      }
+
+#li2_5{
+          background: transparent url(../testIMG/6.png) no-repeat;
+      }
+      #li2_5:hover{
+          background: transparent url(../testIMG/6a.png) no-repeat;
+      }
+
+#li3_1{
+          background: transparent url(../testIMG/25.png) no-repeat;
+      }
+      #li3_1:hover{
+          background: transparent url(../testIMG/25a.png) no-repeat;
+      }
+/*************************图标***************************/
+    
+    /*.middle ul li:hover{
+       background: url(../testIMG/23a.png); 
+    }*/
+    
+    #section3Text{
+        position: relative;
+        width: 750px;
+        height: 600px;
+        /*left: 220px;
+        top: -100px;*/
+        background: url(../testIMG/77.png) repeat;
+        display: none;
+        text-align: left;
+        font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+        padding: 20px 40px 0px 40px;
+        overflow: auto;   /*加了滚动条*/
+        margin: 0 auto;
+    }
+
+ #comeBackToSec3{         /*叉叉的样式*/
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: transparent url(../testIMG/img003.png) no-repeat -875px 0px;
+    text-decoration: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+    #section3Text p{
+        font-size: 18px;
+        color: #000;
+    }
+    
+    /*－－－－－－－－－－－－－－首页－－－－－－－－－－－－－－－－*/
+    .section{position: relative;}
+    #section1 .contain{
+        /*background: rgba(255, 255, 255, 0.35);*/
+        background: url(../testIMG/35.png) repeat;
+        width: 1327px;
+        height: 510px;
+        margin: 0 auto;
+        position: relative;
+    }
+    #contain2{
+        background: url(../testIMG/35.png) repeat;
+        width: 1018px;
+        height: 510px;
+        margin: 0 auto;
+        position: relative;
+        display: none;
+        overflow-y: auto;
+        text-align: left;
+        padding: 20px;
+        font: 14px/1 Tahoma,Helvetica,Arial,"\5b8b\4f53",sans-serif;
+    }
+#sec1table th{
+    margin: 0px;
+    padding: 0px 10px;
+    font-weight: normal;
+    text-align: center;
+    border: 1px solid #DDDDDD;
+    line-height: 35px;
+    color: #FFFFFF;
+    background-color: #78CD26;
+}
+    #sec1table tr{
+       display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+      width:180px;
+      height: 35px;
+    }
+    #sec1table td{
+        text-align: center;
+        width:180px;
+            border: 1px solid #849471;
+    }
+    #guidImg{
+        width: 393px;
+        height: 180px;
+        background-size: 100%;
+        /*background: transparent url(../testIMG/zptu.png) no-repeat;*/
+        position: absolute;
+        top: 300px;
+        left: 50px;
+    }
+    
+    #guidImg div{
+        width: 19px;
+        height: 19px;
+        background: transparent;
+        border-radius: 50%;
+    }
+    
+    #guidImg div:hover{
+        background: url(../testIMG/19.png) no-repeat;
+        cursor: pointer;
+    }
+
+    #guidImg .guidActive{
+        /*background: red;*/
+        background: url(../testIMG/19.png) no-repeat;
+    }
+    
+    #guidImg1{
+        position: absolute;
+        left: 32px;
+        top: 37px;
+    }
+    
+    #guidImg2{
+        position: absolute;
+        left: 122px;
+        top: 37px;
+    }
+    
+    #guidImg3{
+        position: absolute;
+        left: 212px;
+        top: 37px;
+    }
+    
+    #guidImg4{
+        position: absolute;
+        left: 302px;
+        top: 37px;
+    }
+    
+    #guidImg5{
+        position: absolute;
+        left: 178px;
+        top: 107px;
+    }
+    
+    #guidImg6{
+        position: absolute;
+        left: 272px;
+        top: 108px;
+    }
+    
+    #guidImg7{
+        position: absolute;
+        left: 366px;
+        top: 108px;
+    }
+    #section1 .guid-title span{
+        display: block;
+        float: left;
+        width: 25px;
+        height: 25px;
+        background: #6bc900;
+        margin-top: 14px;
+        margin-right: 14px;
+    }
+    #section1 .guid-title{
+        width: 100%;
+        height: 50px;
+        text-align: left;
+        color: #6bc900;
+        font-size: 30px;
+        line-height: 53px;
+        margin: 240px 0px 0px 55px;
+        position: absolute;
+    }
+    
+    #guidTest{
+        width: 754px;
+        /*height: 221px;*/
+        /*border: 1px solid #000px;*/
+        /*background: red;*/
+        position: absolute;
+        top: 250px;
+        /*left: 600px;*/
+        left: 499px;
+        
+    }
+    
+    #guidContent{
+        width: 754px;
+        height: 222px;
+        overflow: hidden;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        margin: 0px;
+        padding: 0px;
+        /*background: rgba(255, 255, 255, 0.77);*/
+        background: url(../testIMG/77.png) repeat;
+        
+    }
+    #move div{
+        /*overflow: hidden;*/
+        /*margin-top: 20px;
+        margin-bottom: 20px;*/
+        height: 222px;    
+    }
+    #move div .move-div-1{
+        float: left;
+        width: 375px;
+        height: 122px;
+        /*background: red;*/
+        margin-top: 50px;
+    }
+    #move div .move-div-2{
+        float: left;
+        font-size: 14px;
+        width: 370px;
+        padding: 60px 0px;
+        /*border-left: 1px #000 solid;*/
+        text-align: left;
+    }
+    
+  #sec1Title{
+      position: absolute;
+      top: 30px;
+      left: 134px;
+      width: 357px;
+      height: 139px;
+  }
+
+  #comeforus{
+     /* position: absolute;
+      top: 30px;
+      left: 626px;*/
+      width: 554px;
+      height: 200px;
+      cursor: pointer;
+  }
+
+ #comeforusContain{
+     position: absolute;
+      top: 30px;
+      left: 626px;
+      width: 554px;
+      height: 200px;
+      overflow: hidden;
+ }
+
+
+ /*#comeforus:hover{
+     background: url(../testIMG/come2.png) no-repeat;
+ }*/
+    /*------------------了解朗国-----------------*/
+    .decContain{
+        width: 1163px;
+        height: 560px;
+        /*background: rgba(255, 255, 255, 0.47);*/
+        background: url(../testIMG/47.png) repeat;
+        margin: 0px auto;
+        position: relative;
+    }
+    .tit{
+        font-size: 26px;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+        height: 60px;
+        line-height: 70px;
+    }
+    .tit-list ul{
+        width: 880px;
+        margin: 0px auto;
+    }
+    .tit-list ul li{
+        float: left;
+        width: 110px;
+        /*border: 1px solid #000;*/
+        list-style: none;
+        height: 44px;
+        cursor: pointer;
+       /* background: blue;*/
+    }
+    
+
+    
+    #underActive{
+        width: 110px;
+        height:14px; 
+        background: transparent url(../testIMG/img003.png) no-repeat 0px -40px;
+        position: absolute;
+        top: 89px;
+        left: 140px;
+    }
+    .dec{
+        width: 1163px;
+        height: 450px;
+        clear: both;
+        border-top: 1px solid #000;
+        /*background: red;*/
+    }
+    .dec-btn-left{
+        float: left;
+        width: 70px;
+        height: 37px;
+        margin-top: 220px;
+        background: transparent url(../testIMG/img003.png) no-repeat -723px 0px;
+        /*border: 1px solid #000;*/
+        cursor: pointer;
+    }
+    .dec-btn-right{
+        float: left;
+        width: 70px;
+        height: 37px;
+        margin-top: 220px;
+        background: transparent url(../testIMG/img003.png) no-repeat -795px 0px;
+        cursor: pointer;
+       /* border: 1px solid #000;*/
+    }
+    .dec-container{
+        float: left;
+        width: 1020px;
+        height: 450px;
+        /*background: blue;*/
+        overflow: hidden;
+    }
+    #decMove{
+        width: 8570px;
+        /*background: red;*/
+        position: relative;
+    }
+    #decMove div{
+        padding: 10px;
+        position: absolute;
+        width: 1020px;
+        height: 450px;
+        text-align: left;
+        font: 14px/1.5 arial, \5FAE\8F6F\96C5\9ED1, sans-serif;
+        /*overflow: auto;*/
+        /*background: yellow;*/
+    }
+/*-------------------slide1----------------------*/
+.slide .container{
+    width: 1140px;
+    height: 570px;
+    overflow: hidden;
+    margin: 0px auto;
+    padding: 0px;
+    /*background: #ccc;*/
+}
+
+#slideMove{
+    width: 2300px;
+    height: 570px;
+    /*background: white;*/
+    overflow: hidden;
+}
+
+#slideConM1{
+    position: relative;
+   /* background: red;*/
+    float: left;
+    width: 1140px;
+    height: 570px;
+    
+}
+
+#slideConM2{
+    position: relative;
+    float: left;
+    width: 1140px;
+    height: 570px;
+    /*background: yellow;*/
+    /*border: 1px solid #ccc;*/
+    background: url(../testIMG/35.png) repeat;
+    line-height: 50px;
+    padding: 20px 40px;
+    text-align: left;
+}
+
+#slideComeBack{
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: transparent url(../testIMG/img003.png) no-repeat -875px 0px;
+    text-decoration: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.slide .container .title{
+    position: absolute;
+    width: 1140px;
+    height: 150px;
+    left: 0px;
+    top: 0px;
+    text-align: center;
+    margin: 0px;
+    /*background: yellow;*/
+}
+
+.slide .container .title div{
+    width: 357px;
+    height: 139px;
+    margin: 0 auto;
+    
+}
+
+.slide .container .con-left,.slide .container .con-right{
+    /*float: left;*/
+    width: 566px;
+    height: 180px;
+    /*background: yellow;*/
+    padding: 0px;
+    margin: 0px;
+    /*margin: 15px 0px 15px 0px;*/
+    position: absolute;
+   /* border: 1px solid #000;*/
+    overflow: hidden;
+}
+
+#sec2con1{
+    top: 175px;
+    left: 0px;
+    
+}
+#sec2con2{
+    top: 175px;
+    left: 570px;
+    
+}
+#sec2con3{
+    top: 380px;
+    left: 0px;
+    
+}
+#sec2con4{
+    top: 380px;
+    left: 570px;
+    
+}
+.slide .container .con-z-l{
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    cursor: pointer;
+    /*border: 1px solid #000;*/
+}
+
+.slide .container .con-z-r{
+    position: absolute;
+    width: 390px;
+    height: 180px;
+    /*background: yellow;*/
+    top: 0px;
+    left: 181px;
+    
+}
+
+.slide .container .con-z-r .con-z-up{
+    width: 380px;
+    height: 50px;
+    /*background: red;*/
+    text-align: left;
+    padding: 10px 0px 0px 20px;
+    color: rgb(92, 88, 7);
+    font-size: 23px;
+}
+.slide .container .con-z-r .con-z-down{
+    width: 380px;
+    height: 130px;
+    /*background: yellow;*/
+    text-align: left;
+    padding: 20px 0px 0px 20px;
+    font-size: 14px;
+    
+}
+
+.slide .container .con-z-r .con-z-down p{
+    color: #000;
+}
+
+.hide-fp-prev{
+    height: 0;
+}
+/*---------------slide3--------------*/
+.zjh-slide-bg1{
+    position: relative;
+    background: url(../testIMG/slideBg1.png) no-repeat;
+    /*background: red;*/
+    width: 1156px;
+    height: 449px;
+    margin: 0 auto;
+    /*border: 1px solid #000;*/
+}
+
+#slideCon1{
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    /*border: 1px solid #000;*/
+    left: 20px;
+    top: 0px;
+     cursor: pointer;
+}
+
+#slideCon2{
+    position: absolute;
+    width: 190px;
+    height: 190px;
+   /* border: 1px solid #000;*/
+    left: 315px;
+    top: 217px;
+    cursor: pointer;
+}
+#slideCon3{
+    position: absolute;
+    width: 155px;
+    height: 155px;
+    /*border: 1px solid #000;*/
+    left: 651px;
+    top: 114px; cursor: pointer;
+    cursor: pointer;
+}
+#slideCon4{
+    position: absolute;
+    width: 184px;
+    height: 184px;
+    /*border: 1px solid #000;*/
+    left: 910px;
+    top: 37px;
+     cursor: pointer;
+}
+
+#slideCon5{
+    position: absolute;
+    width: 81px;
+    height: 81px;
+    /*border: 1px solid #000;*/
+    left: 821px;
+    top: 272px;
+    /*background: yellow;*/
+     cursor: pointer;
+}
+
+#slide3p1{
+    position: absolute;
+    width: 210px;
+    height: 40px;
+    /*border: 1px solid #000;*/
+    left: 20px;
+    top: 210px;
+    /*background: yellow;*/
+    color: #000;
+}
+#slide3p2{
+    position: absolute;
+    width: 190px;
+    height: 40px;
+    /*border: 1px solid #000;*/
+    left: 315px;
+    top: 407px;
+    /*background: yellow;*/
+    color: #000;
+}
+#slide3p3{
+    position: absolute;
+    width: 155px;
+    height: 40px;
+    /*border: 1px solid #000;*/
+    left: 651px;
+    top: 269px;
+     /* background: yellow;*/ 
+    color: #000;
+}
+#slide3p4{
+    position: absolute;
+    width: 184px;
+    height: 40px;
+   /* border: 1px solid #000;*/
+    left: 910px;
+    top: 221px;
+    /*background: yellow;*/
+    color: #000;
+}
+#slide3p5{
+    position: absolute;
+    width: 81px;
+    height: 40px;
+    /*border: 1px solid #000;*/
+    left: 821px;
+    top: 353px;
+   /* background: yellow;*/
+    color: #000;
+}
+
+.text-left{
+    text-align: left;
+}
+
+#slideShowImg{
+    width: 1200px;
+    height: 600px;
+    background: url(../testIMG/35.png) repeat;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+#slideDiv1{
+    height: 150px;
+    /*border: 1px solid #000;*/
+}
+
+#slideText1{
+    position: absolute;
+    width: 536px;
+    height: 194px;
+    /*background: yellow;*/
+    left: 380px;
+    top: 73px;
+}
+
+#slide3TextHidden{
+    display: none;
+}
+
+/*-----------------slide4--------------------*/
+#slide4{
+    width: 1140px;
+    height: 610px;
+    margin: 0 auto;
+    position: relative;
+    background: url(../testIMG/35.png) repeat;
+}
+
+#s4div1{
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    /*border: 1px solid #000;*/
+    overflow: hidden;
+}
+
+
+#s4div2{
+    width: 300px;
+    height: 610px;
+    /*background: #ccc;*/
+    position: absolute;
+    top: 0px;
+    left: 210px;
+    overflow: hidden;
+}
+
+#s4div3{
+    width: 200px;
+    height: 300px;
+    /*background: #ccc;*/
+    position: absolute;
+    top: 0px;
+    left: 520px;
+    overflow: hidden;
+}
+
+#s4div4{
+    width: 200px;
+    height: 300px;
+    /*background: #ccc;*/
+    position: absolute;
+    top: 0px;
+    left: 730px;
+    overflow: hidden;
+}
+
+#s4div5{
+    width: 200px;
+    height: 300px;
+    /*background: #ccc;*/
+    position: absolute;
+    top: 0px;
+    left: 940px;
+    overflow: hidden;
+}
+
+#s4div6{
+    width: 200px;
+    height: 300px;
+    /*background: #ccc;*/
+    position: absolute;
+    top: 310px;
+    left: 0px;
+    overflow: hidden;
+}
+
+#s4div7{
+    width: 200px;
+    height: 300px;
+    /*background: #ccc;*/
+    position: absolute;
+    top: 310px;
+    left: 520px;
+    overflow: hidden;
+}
+
+#s4div8{
+    width: 200px;
+    height: 300px;
+    /*background: #ccc;*/
+    position: absolute;
+    top: 310px;
+    left: 730px;
+    overflow: hidden;
+}
+
+#s4div9{
+    width: 200px;
+    height: 300px;
+    /*background: #ccc;*/
+    position: absolute;
+    top: 310px;
+    left: 940px;
+    overflow: hidden;
+}
+
+
+#s4div11{
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: #EFFFED;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+#s4div22{
+    width: 300px;
+    height: 610px;
+    background: #EFFFED;
+    position: absolute;
+    top: 0px;
+    left: 210px;
+    overflow: hidden;
+}
+
+#s4div33{
+    width: 200px;
+    height: 300px;
+    background: #EFFFED;
+    top: 0px;
+    left: 520px;
+    overflow: hidden;
+}
+
+#s4div44{
+    width: 200px;
+    height: 300px;
+    background: #EFFFED;
+    position: absolute;
+    top: 0px;
+    left: 730px;
+    overflow: hidden;
+}
+
+#s4div55{
+    width: 200px;
+    height: 300px;
+    background: #EFFFED;
+    position: absolute;
+    top: 0px;
+    left: 940px;
+    overflow: hidden;
+}
+
+#s4div66{
+    width: 200px;
+    height: 300px;
+    background: #EFFFED;
+    position: absolute;
+    top: 310px;
+    left: 0px;
+    overflow: hidden;
+}
+
+#s4div77{
+    width: 200px;
+    height: 300px;
+    background: #EFFFED;
+    position: absolute;
+    top: 310px;
+    left: 520px;
+    overflow: hidden;
+}
+
+#s4div88{
+    width: 200px;
+    height: 300px;
+    background: #EFFFED;
+    position: absolute;
+    top: 310px;
+    left: 730px;
+    overflow: hidden;
+}
+
+#s4div99{
+    width: 200px;
+    height: 300px;
+    background: #EFFFED;
+    position: absolute;
+    top: 310px;
+    left: 940px;
+    overflow: hidden;
+}
+
+.s4padding div {
+    padding: 0px 10px;
+    font-size: 15px;
+}
+
+#slide4 div{
+    position: absolute;
+}
+
+#s4div1 div{
+    padding-left: 220px;
+}
+#s4div2 div{
+    padding-left: 330px;
+}
+#s4div3 div{
+    padding-left: 220px;
+}
+#s4div4 div{
+    padding-left: 220px;
+}
+#s4div5 div{
+    padding-left: 220px;
+}
+#s4div6 div{
+    padding-left: 220px;
+}
+#s4div7 div{
+    padding-left: 220px;
+}
+#s4div8 div{
+    padding-left: 220px;
+}
+#s4div9 div{
+    padding-left: 220px;
+}
+
+/*-----------------slide5--------------------*/
+#slide5Container{
+    width: 1200px;
+    height: 600px;
+    position: relative;
+    margin: 0px auto;
+    padding: 0px;
+    background: url(../testIMG/35.png) repeat;
+}
+
+#slide5Up{
+    width: 100%;
+    height: 300px;
+    /*background: yellow;*/
+    position: relative;
+    /*border: 1px solid #000;*/
+}
+
+#slide5Down{
+    width: 100%;
+    height: 300px;
+    /*background: red;*/
+    position: relative;
+    /*border: 1px solid #000;*/
+}
+
+#slide5Container  .divImg{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    /*border: 1px solid #000;*/
+    cursor: pointer;
+}
+
+#slide5Container  .divImgLeft{
+    left: 320px;
+}
+
+#slide5Container  .divImgRight{
+    left: 680px;
+}
+
+#slide5Container  .divImgUp{
+    top: 80px;
+}
+
+#slide5Container  .divImgDown{
+    top: 20px;
+}
+
+#slide5Container  .textUp{
+    font-family: cursive;
+    font-size: 20px;
+    width: 200px;
+    height: 25px;
+    top: 170px;
+    left: 500px;
+    position: absolute;
+    
+}
+
+#slide5Container  .textDown{
+     font-family: cursive;
+    font-size: 20px;
+    width: 200px;
+    height: 25px;
+    top: 100px;
+    left: 500px;
+    position: absolute;
+}
+
+#slide5Text1{
+    width: 300px;
+    height: 280px;
+    /*border: 1px solid #000;*/
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: #EFFFED;
+    text-align: left;
+    display: none;
+    padding: 20px;
+}
+#slide5Text2{
+    width: 300px;
+    height: 280px;
+    /*border: 1px solid #000;*/
+    position: absolute;
+    left: 890px;
+    top: 10px;
+    background: #EFFFED;
+    text-align: left;
+    display: none;
+    padding: 20px;
+}
+#slide5Text3{
+    width: 300px;
+    height: 280px;
+    /*border: 1px solid #000;*/
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: #EFFFED;
+    text-align: left;
+    display: none;
+     padding: 20px;
+}
+#slide5Text4{
+    width: 300px;
+    height: 280px;
+    /*border: 1px solid #000;*/
+    position: absolute;
+    left: 890px;
+    top: 10px;
+    background: #EFFFED;
+    text-align: left;
+    display: none;
+     padding: 10px 20px;
+}
+
+/*------------------你问我答-----------------*/
+
+.zjh-contain{
+        height: 520px;
+        width: 1000px;
+        margin: 0 auto;
+        /*background: red;*/
+        /*border: 1px solid #000;*/
+        clear: left;
+        /*background:  rgba(255, 255, 255, 0.93);*/
+        background:  url(../testIMG/93.png) repeat;
+    }
+    .zjh-contain .header{
+        /*background: blue;*/
+        width: 100%;
+        text-align: center;
+        height: 70px;
+        /*border: 1px solid #000;*/
+        font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+        font-size: 30px;
+        line-height: 80px;
+        color: rgb(54, 234, 49);
+    }
+
+ #section7Scroll{
+     overflow: auto;  /*给DIV限定宽度或高度,并指定overflow样式为auto,这样当内空超出后就会自动出现滚动条了*/
+     height: 445px;
+     width: 900px;
+     margin: 0px auto;
+     position: relative;
+     border-top: 1px dashed #ccc;
+ }
+
+.zjh-contain .content{
+    text-align: left;
+    margin: 0px;
+    border-bottom: 1px dashed #ccc;
+    padding: 15px 0px;
+    
+}
+    .zjh-contain .photo{
+        width: 50px;
+        height: 50px;
+        background: url(../testIMG/photo.png) no-repeat;
+        float: left;
+        margin: 5px 0px;
+    }
+    
+
+
+.zjh-contain .content p{
+    margin-left: 70px;
+    color: #000;
+    cursor: pointer;
+}
+
+.zjh-contain .content .ask-div-1{
+    margin-left: 70px;
+}
+
+.zjh-contain div span{
+    font-size: 13px;
+}
+    .zjh-contain div .ask-span-1{
+        color: #007FFF;
+        margin-right: 12px;
+    }
+    .zjh-contain div .ask-span-2{
+        color: red;
+        margin-left: 12px;
+    }
+
+#comeBackToSec7{         /*a的样式*/
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: transparent url(../testIMG/img003.png) no-repeat -875px 0px;
+    text-decoration: none;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}
+
+#sec5Talk{
+    margin-right: 0px;
+    text-align: right;
+}
+#sec5Talk img{
+    width: 64px;
+    height: 64px;
+}
+#sec5Talk span{
+    font-size: 30px;
+    display: none;              
+}
+
+#sec5Talk .showTalk{
+    color: white;
+    display: inline;
+}
+
+#sec5Talk .hideTalk{
+    display: none;
+}
+
+/*---------------------图片滚动---------------------*/
+img{border: none;}
+#banner{width: 900px;height: 500px;margin: 10px auto;}
+#banner ul{list-style:none;}
+#banner .scroll{width:900px;height:500px;}
+#banner .pic{width:768px;height:500px;float:left;}
+#banner .pic ul{display:block;}
+#banner .pic li{float:left;display:inline;width:768px;text-align:center;}
+#banner .pic li img{width: 768px;height: 500px;}
+
+/*---------------------联系我们--------------------------*/
+.callUsTit{
+    font-size: 40px;
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+    color: rgb(44, 55, 30);
+}
+
+.callUsText{
+    font-size: 20px;
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+    text-align: left;
+    width: 500px;
+    margin: 0px auto;
+    color: rgb(38, 56, 46);
+    padding-left: 0px;
+   /* border: 1px solid #000;*/
+    /*background: rgba(255, 255, 255, 0.47);*/
+    background: url(../testIMG/47.png) repeat;
+    padding: 30px;
+    
+}

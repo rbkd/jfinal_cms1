@@ -1,0 +1,206 @@
+<% DIRECTIVE SAFE_OUTPUT_OPEN; var headContent = {
+include("/pages/template/head.html"){} %>
+<script type="text/javascript">
+   var oper1; 
+	jQuery(function($) {
+		oper1 = {
+				iverifyonly : function() { ////审查(单个)通过函数
+				var url = 'system/resume/verifyonly';
+				form1.action = url;
+				form1.submit();
+				return true;
+			},
+			fileDownload:function(id,file_url,file_name){
+				var url = 'system/resume/fileDownload?file_url='+file_url+'&file_name='+file_name;
+				id.action = url;
+				id.submit();
+				return true;
+			}
+		};
+		$("#I_Confirm").click(function() { //确认响应事件
+			oper1.iverifyonly();
+			window.parent.oper.list();
+			window.parent.oper.closeIframe(); //调用父类方法关闭Iframe
+		});
+		$("#I_Close").click(function() {
+			window.parent.oper.closeIframe();
+		});
+	});
+</script>
+<% }; var bodyContent = { %>
+<div class="container">
+   <form id="form1" name="form1" action="" method="post" role="form">
+		<table class="table table-striped table-bordered table-hover">
+			<caption>基础信息</caption>
+			<tbody>
+				<% for(applicant in applicantList){ if(applicantLP.index==1){ %>
+				<input id="applicant1" type="hidden" name="applicant_id"
+					value="${applicant.applicant_id}" />
+				<tr>
+					<td>所属站点</td>
+					<td>${applicant.province_site}</td>
+					<td>姓名</td>
+					<td>${applicant.name}</td>
+				</tr>
+				<tr>
+					<td>性别</td>
+					<td>${applicant.sex}</td>
+					<td>出生年月</td>
+					<td>${applicant.birthday}</td>
+				</tr>
+				<tr>
+					<td>联系地址</td>
+					<td>${applicant.address}</td>
+					<td>联系邮箱</td>
+					<td>${applicant.email}</td>
+				</tr>
+				<tr>
+					<td>联系电话</td>
+					<td>${applicant.telephone}</td>
+					<td>备用联系电话</td>
+					<td>${applicant.standby_phone}</td>
+				</tr>
+				<tr>
+					<td>简历创建时间</td>
+					<td>${applicant.create_time}</td>
+					<td>答题账号</td>
+					<td>${applicant.account_number}</td>
+				</tr>
+				<tr>
+					<td>简历更新时间</td>
+					<td>${applicant.update_time}</td>
+					<td>答题密码</td>
+					<td>${applicant.password}</td>
+				</tr>
+				<tr>
+					<td>应聘岗位</td>
+					<td colspan="3">${applicant.job}</td>
+				</tr>
+			</tbody>
+			<% }} %>
+		</table>
+		<table class="table table-striped table-bordered table-hover">
+			<caption>教育背景</caption>
+			<tbody>
+				<% for(education in applicantList){ if(education.types==1){ %>
+				<tr>
+					<td colspan="4">第一专业</td>
+				</tr>
+				<tr>
+					<td>学校名称</td>
+					<td>${education.school_name}</td>
+					<td>专业</td>
+					<td>${education.profession}</td>
+				</tr>
+				<tr>
+					<td>入学时间</td>
+					<td>${education.admission_time}</td>
+					<td>毕业时间</td>
+					<td>${education.graduation_time}</td>
+				</tr>
+				<tr>
+					<td>学历</td>
+					<td colspan="3">${education.degree}</td>
+				</tr>
+				<% } %> <% if(education.types==2){ %>
+				<tr>
+					<td colspan="4">第二专业</td>
+				</tr>
+				<tr>
+					<td>学校名称</td>
+					<td>${education.school_name}</td>
+					<td>专业</td>
+					<td>${education.profession}</td>
+				</tr>
+				<tr>
+					<td>入学时间</td>
+					<td>${education.admission_time}</td>
+					<td>毕业时间</td>
+					<td>${education.graduation_time}</td>
+				</tr>
+				<tr>
+					<td>学历</td>
+					<td colspan="3">${education.degree}</td>
+				</tr>
+				<% }} %>
+			</tbody>
+		</table>
+		<table class="table table-striped table-bordered table-hover">
+			<caption>经历</caption>
+			<tbody>
+				<% for(experience in experienceList){ %>
+				<tr>
+					<td>名称</td>
+					<td colspan="3">${experience.name}</td>
+				</tr>
+				<tr>
+					<td>开始结束时间</td>
+					<td colspan="3">${experience.time}</td>
+				</tr>
+				<tr>
+					<td>介绍</td>
+					<td colspan="3">${experience.description}</td>
+				</tr>
+				<tr>
+					<td>成果或心得</td>
+					<td colspan="3">${experience.achievement}</td>
+				</tr>
+				<% } %>
+			</tbody>
+		</table>
+		<table class="table table-striped table-bordered table-hover">
+			<caption>自我推荐</caption>
+			<tbody>
+				<% for(applicant in applicantList){ if(applicantLP.index==1){ %>
+				<tr>
+					<td style="width: 300px">获奖情况</td>
+					<td colspan="3">${applicant.awards}</td>
+				</tr>
+				<tr>
+					<td>特长与优缺点</td>
+					<td colspan="3">${applicant.advantages}</td>
+				</tr>
+				<tr>
+					<td>其他</td>
+					<td colspan="3">${applicant.other}</tdusername>
+				</tr>
+				 <% }} %>
+			</tbody>
+		</table>
+		<br /> 附件: <br /> <br />
+		<table>
+		<tr>
+		    <% if(file4!=null) { %>
+		  <td><form></form><form id="form4" name="form4" action="" method="post" role="form"><img alt="${file4.file_name}" onclick="oper1.fileDownload(form4,'${file4.file_url}','${file4.file_name}')" title="${file4.file_name}" class="wenjian" src="static/lango/resume/image/wenjian.png"></form><br><div  id="filecontent1" style="overflow: hidden;text-overflow: ellipsis;width: 50px;height: 20px;margin-left: 15px;" >${file4.file_name}</div>
+		  </td>
+		   		<% } %>
+		   <% if(file5!=null) { %>
+		  <td><form></form><form id="form5" name="form5" action="" method="post" role="form"><img alt="${file5.file_name}" onclick="oper1.fileDownload(form5,'${file5.file_url}','${file5.file_name}')" title="${file5.file_name}"  class="wenjian" src="static/lango/resume/image/wenjian.png"></form><br><div id="filecontent2" style="overflow: hidden;text-overflow: ellipsis;width: 50px;height: 20px;margin-left: 15px;" >${file5.file_name}</div>
+		  </td>
+		  		<% } %>
+		    <% if(file6!=null) { %>
+		  <td><form></form><form id="form6" name="form6" action="" method="post" role="form"><img  alt="${file6.file_name}"  onclick="oper1.fileDownload(form6,'${file6.file_url}','${file6.file_name}')"  title="${file6.file_name}"  class="wenjian" src="static/lango/resume/image/wenjian.png"></form><br><div id="filecontent3" style="overflow: hidden;text-overflow: ellipsis;width: 50px;height: 20px;margin-left: 15px;" >${file6.file_name}</div>
+		  </td>
+		  </tr>
+		   		<% } %>
+</table>
+		<div style="clear: both;"></div>
+		<div style="margin-top: 30px; margin-left: 110px;">
+			<label class="checkbox-inline"> <input type="radio"
+				style="margin-left: 60px;" name="verify" value="1" checked>审核通过
+			</label> <label class="checkbox-inline"> <input value="2"
+				type="radio" style="margin-left: 40px;" name="verify">审核未通过
+			</label> <br /> <br />
+		</div>
+		<button id="I_Confirm"
+			style="margin-left: 250px; margin-top: 10px; width: 100px; height: 40px;"
+			type="button" class="btn btn-default">确定</button>
+		<button id="I_Close"
+			style="margin-left: 60px; margin-top: 10px; width: 100px; height: 40px;"
+			type="button" class="btn btn-default">关闭</button>
+	</form>
+	<br /> <br /> <br />
+</div>
+<%}; %> <%
+layout("/pages/template/_layout.html",{head:headContent,body:bodyContent}){
+%> <%} %>

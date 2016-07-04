@@ -1,0 +1,62 @@
+<% 
+DIRECTIVE SAFE_OUTPUT_OPEN;
+var headContent = {
+	include("/pages/template/head.html"){}
+%>
+<script src="http://malsup.github.io/jquery.form.js"></script>
+<script type="text/javascript">
+jQuery(function($) {
+	//显示Menu索引
+	showMenu('page_system');
+	showMenu('page_importexcel');
+});
+
+function importexcel(){
+	$("#excel_upload").ajaxSubmit(
+			{
+				type : "post",
+				async : false,
+				url:'admin/importexcel/importexcel',
+				dataType : "text",
+				success : function(data) {
+					if (data== 'success') {
+						Alert("文件导入成功！！！");
+					}
+					if (data == 'no_file') {
+						Alert("请选择文件！！！");
+					}
+				},
+				error:function(html){
+					var flag = (typeof console != 'undefined');
+					if(flag) console.log("服务器忙，提交数据失败，代码:" +html.status+ "，请联系管理员！");
+					Alert("服务器忙，提交数据失败，请联系管理员！");
+				}
+			});
+}
+</script>
+
+<%
+};
+var bodyContent = {
+%>
+	<!-- 菜单 -->
+	<% include("/static/component/include/menu.html"){} %>
+		
+	  <div class="container" style="padding: 5px 0px 5px 0px;text-align: center;">
+	  	<div style="margin-top: 20px;">
+	  	<span style="color: green;">请选择excel文件,导入账号和密码</span>
+	  	</div>
+	   <form id="excel_upload" action="" method="post" enctype="multipart/form-data">
+	  	<div style="margin-top: 10px;width: 32px;margin-left:570px; height: 32px;background-image: url('static/lango/resume/image/shangchuan.png');">
+		<input type="file" style="width: 32px; overflow: hidden; height: 32px; opacity: 0;" name="excel_url">
+		</div>
+		</form>
+	  	<div style="margin-top: 20px;">
+		<button class="btn btn-primary" onclick="importexcel();return false;">上传</button>
+		</div>
+	  </div>
+<%}; %>
+
+<% layout("/pages/template/_layout.html",{head:headContent,body:bodyContent}){ %>
+DIRECTIVE SAFE_OUTPUT_CLOSE;
+<%} %>

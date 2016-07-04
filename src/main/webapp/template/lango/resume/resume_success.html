@@ -1,0 +1,13 @@
+<% DIRECTIVE SAFE_OUTPUT_OPEN; var headContent = {
+include("/pages/template/head.html"){} %>
+
+<% }; var bodyContent = { %>
+<div style="margin-top: 50px;margin-left: 90px;font-size: 16px;">
+<p>您的简历已经提交成功，请安排时间做在线职业测评。</p>
+<p style="color: green;margin-left: 15px;">你的个人信息为重要的识别信息，请如实填写。</p>
+<p>职业测评用户名：${applicant.account_number} 密码：${applicant.password}</p>
+<p style="margin-left: 100px;">现在就去<a id="zeyeceping" href="http://ns.normstar.net/gzlgdz/" target="_blank">职业测评</a></p>
+</div>
+<%}; %> <%
+layout("/pages/template/_layout.html",{head:headContent,body:bodyContent}){
+%> <%} %>

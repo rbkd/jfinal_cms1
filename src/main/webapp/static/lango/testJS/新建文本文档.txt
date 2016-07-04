@@ -1,0 +1,114 @@
+.slide .container{
+    width: 1140px;
+    height: 570px;
+    background: #ccc;
+    margin: 0px auto;
+    padding: 0px;
+    overflow: hidden;
+}
+
+#slideMove{
+    width: 2380px;
+   background: #ccc;
+    margin: 0px auto;
+    padding: 0px;
+    height: 570px;
+    overflow: hidden;
+    
+}
+
+#slideConM1{
+    position: relative;
+    /*background: red;*/
+    float: left;
+    width: 1140px;
+    height: 570px;
+    /*border: 1px solid #000;*/
+}
+
+#slideConM2{
+    float: left;
+    width: 1140px;
+    height: 570px;
+}
+
+.slide .container .title{
+    width: 1140px;
+    height: 150px;
+    
+    text-align: center;
+    margin: 0 auto;
+}
+
+.slide .container .title div{
+    background: url(../testIMG/langozp.png) no-repeat;
+    width: 357px;
+    height: 139px;
+    margin: 0 auto;
+    
+}
+
+.slide .container .con-left,.slide .container .con-right{
+    /*float: left;*/
+    width: 570px;
+    height: 180px;
+    /*background: yellow;*/
+    padding: 0px;
+    margin: 0px;
+    /*margin: 15px 0px 15px 0px;*/
+    position: absolute;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+/*#con1{
+    top: 150px;
+    left: 0px;
+    
+}
+#con2{
+    top: 150px;
+    left: 570px;
+}
+#con3{
+    top: 289px;
+    left: 0px;
+}
+#con4{
+    top: 289px;
+    left: 570px;
+}*/
+
+.slide .container  .con-z-l{
+    width: 180px;
+    height: 180px;
+    float: left;
+    /*border: 1px solid #000;*/
+    
+    
+}
+
+.slide .container .con-z-r{
+    float: left;
+    width: 390px;
+    height: 180px;
+    background: yellow;
+    
+}
+.slide .container .con-z-r .con-z-up{
+    width: 380px;
+    height: 50px;
+    /*background: red;*/
+    text-align: left;
+    padding: 10px 0px 0px 20px;
+}
+.slide .container .con-z-r .con-z-down{
+    width: 380px;
+    height: 130px;
+    /*background: yellow;*/
+    text-align: left;
+    padding: 20px 0px 0px 20px;
+    font-size: 14px;
+}
+.slide .container .con-z-r .con-z-down p{
+    color: #000;
+}

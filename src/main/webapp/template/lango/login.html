@@ -1,0 +1,64 @@
+<% var headContent = { %> <%
+include("/template/lango/includes/head.html"){} %>
+<script type="text/javascript">
+	function login() {
+		form1.action = "login";
+		form1.submit();
+	}
+
+	<!-- jQuery 当键盘敲击【ENTER】键时，系统登录 -->
+	$(document).ready(function() {
+		$("body").keydown(function(event) {
+			if (event.which == 13) {
+				login();
+			}
+		});
+	});
+</script>
+<% }; var bodyContent = { %> <% %>
+<div class="login login-modern login-position">
+<form id="form1" action="" method="post" class="ui-form">
+<input type="hidden" name="pre_page" value="${pre_page!'' }" />
+<fieldset>
+	<h2 class="ui-form-title">欢迎登录郎国电子</h2>
+
+	<div class="ui-form-item ui-form-item-focus">
+		<label class="ui-label">
+		<span class="ui-icon ui-icon-userDEF">账户名：</span> 
+		</label> 
+		<input type="text" class="ui-input ui-input-normal" name="username" autofocus="autofocus"
+		autocomplete="off" tabindex="1" value="" maxlength="100" placeholder="您填写简历时的邮箱">
+	</div>
+
+	<div class="ui-form-item ui-form-item-focus" id="J-username">
+		<label class="ui-label">
+		<span class="ui-icon ui-icon-securityON">登录密码：</span>
+		</label> 
+		<input type="password" class="ui-input ui-input-normal" name="password" 
+		autocomplete="off" tabindex="2" value="" maxlength="100" placeholder="您填写简历时的手机号码">
+	</div>
+	<div class="ui-form-item ui-form-item-focus">
+	<label class="ui-label">
+		<span class="ui-icon ui-icon-code">验证码：</span> 
+		</label>
+			<input name="imageCode" type="text" style="padding-left: 10px;width: 106px;height: 36px;"
+			autocomplete="off" tabindex="2" value="" maxlength="100" id="imageCode" tabindex="3" placeholder="验证码">
+			<img id="picimageCode" align="middle" width="60" height=40"
+					style="float:right; line-height: 18px; cursor: pointer;"
+							src="front/image_code" title="更换一张验证码图片"
+						onclick="loadPicimageCode()" />
+   </div>
+
+	<div  class="ui-form-text" style="color: #FFCC00;font-weight:bold ;">
+	提示：<span>${msg!}</span>
+	</div>
+
+	<div class="ui-form-item ui-form-item-30pd">
+		<input type="button"  onclick="login();" value="登 录" class="ui-button" tabindex="3">
+	</div>
+</fieldset>
+</form>
+</div>
+<%}; %> <%
+layout("/pages/template/_layout.html",{head:headContent,body:bodyContent}){
+%> <%} %>

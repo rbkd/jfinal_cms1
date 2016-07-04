@@ -1,0 +1,93 @@
+<% 
+var headContent = {
+	include("/pages/template/head.html"){}
+};
+
+var bodyContent = {
+%>
+<form name="form1" action="" method="post" class="form-horizontal" role="form">
+	<!-- 数据列表 -->
+	<table class="table">
+		<%  // 列表头部 %>
+			<tr>
+				<td>栏目</td>
+				<td>${model.folderName}</td>
+			</tr>
+			<tr>
+			<td>文字标识</td>
+				<td>${model.identify}</td>
+			</tr>
+			<tr>
+				<td>题目/问题</td>
+				<td>${model.title}</td>
+			</tr>
+			<tr>
+				<td>内容简介/回答</td>
+				<td title="${model.content}">
+					<% if (strutil.length(model.content) > 15) { %>
+						${strutil.subStringTo(model.content, 0, 15)}...
+					<%	} else {%>
+						${model.content }
+					<% } %>
+				</td>
+			</tr>
+			<tr>
+				<td>岗位/内容详情</td>
+				<td title="${model.job}">
+					<% if (strutil.length(model.job) > 15) { %>
+						${strutil.subStringTo(model.job, 0, 15)}...
+					<%	} else {%>
+						${model.job}
+					<% } %>
+				</td>
+			</tr>
+			<tr>
+				<td>排序</td>
+				<td>${model.sort}</td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td>
+ 
+	<% if(model.status==2) { %>
+	隐藏
+	<%	} %>
+	<% if(model.status==1) { %>
+	显示
+	<%	} %>
+
+				</td>  
+			</tr>
+			<tr>
+				<td>默认图片</td> 
+				<td>
+					<% if(!strutil.isEmpty(model.image_url)){ %>
+						<img alt="图片" title="${model.image_url}" src="${model.image_url}" width="40" height="40">
+					<% } %>
+				</td>
+			</tr>
+			<tr>
+				<td>图片变换</td>
+				<td>
+					<% if(!strutil.isEmpty(model.hover_image_url)){ %>
+						<img alt="图片" title="${model.hover_image_url}" src="${model.hover_image_url}" width="40" height="40">
+					<% } %>
+				</td>
+			</tr>
+			<tr>
+				<td>位置标识</td>
+				<td>${model.position}</td>
+			</tr>
+	</table>
+	
+	<div style="height: 50px;clear: both;">&nbsp;</div>
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+	  <div class="container" style="padding: 5px 0px 5px 0px;text-align: center;">
+		<button class="btn btn-default" onclick="closeIframe();return false;">关 闭</button>
+	  </div>
+	</nav>
+</form>
+<%}; %>
+
+<% layout("/pages/template/_layout.html",{head:headContent,body:bodyContent}){ %>
+<%} %>

@@ -1,0 +1,562 @@
+<%
+//首页背景图片  
+ var first_b_image=temp.returnImageorText("背景图片",1);
+ //高校行程图片
+ var recruitingtrip_image=temp.returnImageorText("高校行程图片",1);
+  //招聘流程图片
+ var recruiting_image=temp.returnImageorText("招聘流程图片",1);
+  //招聘流程文字
+ var recruiting_text=temp.returnImageorText("招聘流程文字",1);
+  //郎国校园招聘图片
+ var lango_recruit_image=temp.returnImageorText("郎国校园招聘图片",1);
+//首页 应聘流程1
+var recruitment = temp.rollPicture(1);
+//首页 招聘行程
+var recruitingtrip=temp.recruitingTrip(1); 
+//了解郎国背景图片 
+ var second_b_image=temp.returnImageorText("背景图片",2);
+  //郎国校园招聘图片
+ var lango_recruit_image2=temp.returnImageorText("郎国校园招聘图片",2);
+//了解朗国  郎国简介
+var langointroduction=temp.rollPicture(2,1);
+//了解朗国  办公区
+var langointroduction2=temp.rollPicture(2,2);
+//了解朗国  薪资福利
+var wages=temp.rollPicture(2,3);
+//了解朗国  日常培训
+var dailytraining=temp.rollPicture(2,4);
+//加入郎国背景图片 
+ var third_b_image=temp.returnImageorText("背景图片",3);
+//加入朗国  岗位1
+var work1 = temp.rollPicture(3,1);
+//加入朗国  岗位2
+var work2 = temp.rollPicture(3,2);
+//加入朗国  岗位3
+var work3=temp.rollPicture(3,3);
+//我在郎国背景图片 
+ var four_b_image=temp.returnImageorText("背景图片",4);
+// 我在郎国滚动图片内容  4
+var rollPics = temp.rollPicture(4);
+//你问我答背景图片 
+ var five_b_image=temp.returnImageorText("背景图片",5);
+//你问我答
+var dialog=temp.rollPicture(5);
+//联系我们
+var contactus=temp.rollPicture(6);
+//联系我们背景图片 
+ var six_b_image=temp.returnImageorText("背景图片",6);
+//二维码
+  var QRCode=temp.returnImageorText("二维码",1);
+%>
+<% 
+	var headContent = {
+%>
+	<% include("/template/lango/includes/header.html"){} %>
+	<%
+};
+%>
+<%
+var bodyContent = {
+%>
+	<div id="fullpage">
+			<div class="section" id="section1" style="background-image:url(${first_b_image.image_url})">
+                
+				<div class="contain">
+                    <div id="sec1Title" style="background-image:url(${lango_recruit_image.image_url})"></div>
+                    <div id="comeforusContain"><div id="comeforus" style="background: url(${recruitingtrip_image.image_url});"></div></div>
+                <div class="guid-title"><span></span>${recruiting_text.content}</div>
+                <div id="guidImg" style="background: url(${recruiting_image.image_url}) repeat;">
+                <% for(item in recruitment){ %>
+                    <div id="guidImg${item.position}" onclick="onGuidClick(${item.position})" ></div>
+                   	<% } %>
+                </div>
+                <div id="guidTest">
+                    <!--<div class="guid-title"><span></span>招聘流程</div>-->
+                  <div id="guidContent">
+                    <div id="move">
+                      <% for(item in recruitment){ %>
+                      <div>
+                          <div class="move-div-1" style="background:transparent url(${item.image_url}) no-repeat;"></div>
+                          <div class="move-div-2">${item.content}</div>
+                      </div>
+                       	<% } %>
+                    </div>
+                    </div>
+                  </div>
+               </div>
+                <div id="contain2">
+                    <a id="comeBackToSec3" href="javascript:comeBackSec1();"></a>
+                    <table id="sec1table" style="margin-left:100px;  border-collapse: collapse;border-spacing:0px;border-color: grey"  border="0" cellpadding="0" cellspacing="0" >
+                    <tr>
+                     <% for(item in recruitingtrip){ %>
+                             <% if(item.identify=='标题栏'){ %>
+                    <th>${item.city}</th>
+                    <th>${item.school}</th>
+                    <th>${item.date}</th>
+                    <th>${item.preach_site}</th>
+                    <% }} %>
+                    </tr>
+                     <% for(item in recruitingtrip){ %>
+                             <% if(item.identify=='行程'){ %>
+                        <tr><td><font style="font-size:24px;color:green">${item.city}</font></td><td>${item.school}</td><td>${item.date}</td><td>${item.preach_site}</td></tr>
+                    	 <% }} %>
+                    	  <% for(item in recruitingtrip){ %>
+                             <% if(item.identify=='说明'){ %>
+                   <tr><td colspan="4"><p style="color:#000;line-height: 32px;">${item.content}</p></td></tr>
+                           <% }} %>
+                    </table>
+                </div>
+			</div><!--section1 end-->
+			
+        
+        <div class="section" id="section2" style="background-image:url(${second_b_image.image_url})">
+            <div class="slide">
+                <div class="container">     <!--不动-->
+                    <div id="slideMove">    
+                    <div id="slideConM1">
+                    <div class="title" id="slide2Title"> <div style="background-image:url(${lango_recruit_image2.image_url});"></div></div>
+                     <% for(item in langointroduction){ %>
+                      <% if(item.identify=='左上角'){ %>
+                    <div class="con-left" id="sec2con1">
+                        <div class="con-z-l" id="slide11"  style="background: url(${item.image_url}) no-repeat;"></div>
+                        <div class="con-z-r">
+                            <div class="con-z-up" >${item.title}</div>
+                            <div class="con-z-down">
+                                <p>${item.content}<a id="slide_a1" href="#" style="color:blue;text-decoration:none;">查看详情</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% } %>
+                    <% for(item in langointroduction){ %>
+                       <% if(item.identify=='右上角'){ %>
+                    <div class="con-right" id="sec2con2">
+                        <div class="con-z-l" id="slide12" style=" width: 190px;height: 190px;background: url(${item.image_url}) no-repeat;"><a></a></div>
+                        <div class="con-z-r">
+                            <div class="con-z-up">${item.title}</div>
+                            <div class="con-z-down">
+                                <p>${item.content}<a id="slide_a2" href="#" style="color:blue;text-decoration:none;">查看详情</a></p>                                
+                            </div>
+                        </div>
+                    </div>
+                     <% } %>
+                     <% } %>
+                     <% for(item in langointroduction){ %>
+                          <% if(item.identify=='左下角'){ %>
+                    <div class="con-left" id="sec2con3">
+                        <div class="con-z-l" id="slide13" style="background: url(${item.image_url}) no-repeat;"></div>
+                        <div class="con-z-r">
+                            <div class="con-z-up">${item.title}</div>
+                            <div class="con-z-down">
+                                <p>${item.content}<a id="slide_a3" href="#" style="color:blue;text-decoration:none;">查看详情</a></p>
+                            </div>
+                        </div>
+                    </div>
+                   <% } %>
+                    <% } %>
+                    <% for(item in langointroduction){ %>
+                       <% if(item.identify=='右下角'){ %>
+                    <div class="con-right" id="sec2con4">
+                        <div class="con-z-l" id="slide14" style="background: url(${item.image_url}) no-repeat;"></div>
+                        <div class="con-z-r">
+                            <div class="con-z-up">${item.title}</div>
+                            <div class="con-z-down">
+                                <p>${item.content}<a id="slide_a4" href="#" style="color:blue;text-decoration:none;">查看详情</a></p>
+                            </div>
+                        </div>
+                    </div>
+                     <% } %>
+                     <% } %>
+                        </div>
+                        <div id="slideConM2"><a id="slideComeBack" href="javascript:slideComeBack();"></a>
+                            111
+                        </div>
+                        <div id="slideConM2ForHide" style="display:none">
+                         <% for(item in langointroduction){ %>
+                            <p><font style="color:green;font-size:30px;text-align:center">${item.title}</font>${item.job}</p>
+                               <% } %>
+                        </div>
+                </div>
+                </div>
+                
+            </div>
+            <div class="slide"   >
+                <div  id="slideShowImg">
+                    <div id="slideDiv1"></div>
+                <div class="zjh-slide-bg1">
+                 <% for(item in langointroduction2){ %>
+                  <% if(item.identify=="公司剪影1"){ %>
+                    <div id="slideCon1" style="background: url(${item.image_url}) no-repeat;"></div>
+                     <% } %>
+                     <% if(item.identify=="公司剪影2"){ %>
+                    <div id="slideCon2" style="background: url(${item.image_url}) no-repeat;"></div>
+                     <% } %>
+                     <% if(item.identify=="公司剪影3"){ %>
+                    <div id="slideCon3" style="background: url(${item.image_url}) no-repeat;"></div>
+                      <% } %>
+                     <% if(item.identify=="公司剪影4"){ %>
+                    <div id="slideCon4" style="background: url(${item.image_url}) no-repeat;"></div>
+                      <% } %>
+                     <% if(item.identify=="公司剪影5"){ %>
+                    <div id="slideCon5" style="background: url(${item.image_url}) no-repeat;"></div>
+                      <% } %>
+                       <% } %>
+                     <% for(item in langointroduction2){ %>
+                     <% if(item.identify=="公司剪影1"){ %>
+                    <p id="slide3p1">${item.title}</p>
+                         <% } %>
+                     <% if(item.identify=="公司剪影2"){ %>
+                    <p id="slide3p2">${item.title}</p>
+                         <% } %>
+                    <% if(item.identify=="公司剪影3"){ %>
+                    <p id="slide3p3">${item.title}</p>
+                         <% } %>
+                     <% if(item.identify=="公司剪影4"){ %>
+                    <p id="slide3p4">${item.title}</p>
+                         <% } %>
+                   <% if(item.identify=="公司剪影5"){ %>
+                    <p id="slide3p5">${item.title}</p>
+                         <% } %>
+                     <% } %>  
+                </div>
+                    <div id="slideText1" class="text-left">
+                     <% for(item in langointroduction2){ %>
+                     <% if(item.identify=="邀请语"){ %>
+                        <font style="color:green;font-size:30px;">${item.title}</font>
+                        ${item.content}
+                        <% } %>
+                      <% } %>  
+                    </div>
+                    <div id="slide3TextHidden" >
+                     <% for(item in langointroduction2){ %>
+                        <p>
+                        <font style="color:green;font-size:30px;">${item.title}</font>
+                         ${item.content}
+                        </p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div id="slide4" class="text-left s4padding">
+                  <% for(item in wages){ %>   
+                     <% if(item.identify=="薪资福利1"){ %>
+                     <div id="s4div11">${item.content}</div>
+                      <% } %>
+                      <% if(item.identify=="薪资福利2"){ %>
+                     <div id="s4div22">${item.content}</div>
+                      <% } %>
+                      <% if(item.identify=="薪资福利3"){ %>
+                     <div id="s4div33">${item.content}</div>
+                     <% } %>
+                      <% if(item.identify=="薪资福利4"){ %>
+                     <div id="s4div44">${item.content}</div>
+                      <% } %>
+                      <% if(item.identify=="薪资福利5"){ %>
+                     <div id="s4div55">${item.content}</div>
+                     <% } %>
+                      <% if(item.identify=="薪资福利6"){ %>
+                     <div id="s4div66">${item.content}</div>
+                      <% } %>
+                      <% if(item.identify=="薪资福利7"){ %>
+                      <div id="s4div77">${item.content}</div>
+                       <% } %>
+                      <% if(item.identify=="薪资福利8"){ %>
+                      <div id="s4div88">${item.content}</div>
+                        <% } %>
+                      <% if(item.identify=="薪资福利9"){ %>
+                      <div id="s4div99">${item.content}</div>
+                       <% } %>
+                     <% } %>
+                  <% for(item in wages){ %>
+                   <% if(item.identify=="薪资福利1"){ %>
+                    <div id="s4div1" style="background:url(${item.image_url})"  onmouseover="slide4Over(1,1,'')" onmouseout="slide4Over(1,3,'${item.image_url}')" ></div>
+                     <% } %>
+                      <% if(item.identify=="薪资福利2"){ %>
+                    <div id="s4div2" style="background:url(${item.image_url})" onmouseover="slide4Over(2,1,'')" onmouseout="slide4Over(2,3,'${item.image_url}')" ></div>
+                    <% } %>
+                      <% if(item.identify=="薪资福利3"){ %>
+                    <div id="s4div3" style="background:url(${item.image_url})" onmouseover="slide4Over(3,1,'')" onmouseout="slide4Over(3,3,'${item.image_url}')" ></div>
+                   <% } %>
+                      <% if(item.identify=="薪资福利4"){ %>
+                    <div id="s4div4" style="background:url(${item.image_url})" onmouseover="slide4Over(4,1,'')" onmouseout="slide4Over(4,3,'${item.image_url}')" ></div>
+                      <% } %>
+                      <% if(item.identify=="薪资福利5"){ %>
+                    <div id="s4div5" style="background:url(${item.image_url})" onmouseover="slide4Over(5,1,'')" onmouseout="slide4Over(5,3,'${item.image_url}')" ></div>
+                      <% } %>
+                      <% if(item.identify=="薪资福利6"){ %>
+                    <div id="s4div6" style="background:url(${item.image_url})" onmouseover="slide4Over(6,1,'')" onmouseout="slide4Over(6,3,'${item.image_url}')" ></div>
+                     <% } %>
+                      <% if(item.identify=="薪资福利7"){ %>
+                    <div id="s4div7" style="background:url(${item.image_url})" onmouseover="slide4Over(7,1,'')" onmouseout="slide4Over(7,3,'${item.image_url}')" ></div>
+                      <% } %>
+                      <% if(item.identify=="薪资福利8"){ %>
+                    <div id="s4div8" style="background:url(${item.image_url})" onmouseover="slide4Over(8,1,'')" onmouseout="slide4Over(8,3,'${item.image_url}')" ></div>
+                    <% } %>
+                      <% if(item.identify=="薪资福利9"){ %>
+                    <div id="s4div9" style="background:url(${item.image_url})" onmouseover="slide4Over(9,1,'')" onmouseout="slide4Over(9,3,'${item.image_url}')" ></div>
+                    <% } %>
+                     <% } %>
+                </div>
+            </div>
+            <div class="slide">
+                <div id="slide5Container">
+                    <div id="slide5Up">
+                    <% for(item in dailytraining ){ %>
+                     <% if(item.identify=="上方"){ %>
+                        <div class="divImg divImgLeft divImgUp" style="background:url(${item.image_url})" id="slide5Img1"></div>
+                        <div class="textUp">${item.title}</div>
+                        <div class="divImg divImgRight divImgUp" style="background:url(${item.hover_image_url})" id="slide5Img2"></div>
+                        
+                        <div id="slide5Text1"><font style="color:green;font-size:24px">${item.content}
+                        </div>
+                        <div id="slide5Text2">
+                            <font style="color:green;font-size:24px;">${item.job}
+                        </div>
+                        <% } %>
+                          <% } %>
+                    </div>
+                    <div id="slide5Down">
+                       <% for(item in dailytraining ){ %>
+                     <% if(item.identify=="下方"){ %>
+                        <div class="divImg divImgLeft divImgDown" style="background:url(${item.image_url})" id="slide5Img3"></div>
+                        <div class="textDown">${item.title}</div>
+                        <div class="divImg divImgRight divImgDown" style="background:url(${item.hover_image_url})" id="slide5Img4"></div>
+                        <div id="slide5Text3">
+                            <font style="color:green;font-size:24px;">${item.content}
+                        </div>
+                        <div id="slide5Text4">
+                            <font style="color:green;font-size:24px;">${item.job}
+                        </div>
+                          <% } %>
+                          <% } %>
+                    </div>
+                </div>
+            </div>
+			</div>
+			<div class="section" id="section3" style="background-image:url(${third_b_image.image_url})">
+                <div id="sec3textdiv">  
+                    <!--加入的-->
+                    <div id="sec31"></div>
+                <div class="section3Container" id="section3Container">
+                <div class="left-list" id="leftList">
+                 	 <% for(item in work1){ %>
+                 	  <% if(item.position=='1'){ %>
+                    <div id="listOfDev" class="active">${item.identify}</div>
+                    <% } break;%>
+                   <% } %>
+                        <% for(item in work2){ %>
+                 	  <% if(item.position=='2'){ %>
+                    <div id="listOfMan">${item.identify}</div>
+                       <% } break;  %>
+                       <% } %>
+                    <% for(item in work3){ %>
+                 	  <% if(item.position=='3'){ %>
+                    <div id="listOfSup">${item.identify}</div>
+                    <% } break; %>
+                    <% } %>
+                    <div id="myActive"></div>
+                </div>      
+                
+                <div class="content">
+                    <div class="btn-left" id="btnLeft"></div>
+                    <div class="middle" id="middle">
+                        <div id="middleContainer">
+                        <div class="show1">
+                            <ul listPosition="1">
+                            <% for(item in work1){ %>
+                                <li onmousemove="changepicture(this,'${item.hover_image_url}')" onmouseout="normalImg(this,'${item.image_url}')" 
+
+onclick="getjobmessage('${item.id}')" style="background: transparent url(${item.image_url}) no-repeat;" >${item.title}</li>
+                                   <% } %>                
+                            </ul>
+                        </div>
+                        <div class="show2">
+                            <ul listPosition="2"> 
+                                <% for(item in work2){ %>
+                                <li onmousemove="changepicture(this,'${item.hover_image_url}')" onmouseout="normalImg(this,'${item.image_url}')" 
+
+onclick="getjobmessage('${item.id}')" style="background: transparent url(${item.image_url}) no-repeat;" >${item.title}</li>
+                                   <% } %>                            
+                            </ul>
+                        </div>
+                        <div class="show3">
+                            <ul listPosition="3">
+                                <% for(item in work3){ %>
+                                <li onmousemove="changepicture(this,'${item.hover_image_url}')" onmouseout="normalImg(this,'${item.image_url}')" 
+
+onclick="getjobmessage('${item.id}')"  style="background: transparent url(${item.image_url}) no-repeat;" >${item.title}</li>
+                                   <% } %>                                  
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="btn-right" id="btnRight"></div>
+                </div>
+                   
+                         <!--section3Text end-->
+                </div>
+                    <div id="section3Text">
+                            <a id="comeBackToSec3" href="javascript:comeBackSec3();"></a>
+                            <h3 style="color:red;"></h3>
+                            <p></p>
+                    </div> 
+                <div id="sec32"></div>
+            </div> 
+			</div>
+			
+        
+        <div class="section" id="section4" style="background-image:url(${four_b_image.image_url})">
+                
+                <div id="banner" class="scroll">   
+  <div id="FS_Cont_01" class="scroll_cont" data-client="focus">
+	<% for(item in  rollPics){ %>
+    <div class="box">
+      <div><a href="#" > <IMG alt="${item.title}" title="${item.title}"  src="${item.image_url}" width="900" height="500"> </a></div>
+      <div class="bg"></div>
+      <div class="txt">
+        <H3><a class="f_white" href="#" >${item.title}</a></H3>
+        <P>${item.content}</P>
+      </div>
+    </div>
+    <% } %>
+  </div>
+  <a id="FS_arr_left_01" class="arr_left" title="上一个" href="javascript:;"></a> <a id="FS_arr_right_01" class="arr_right" title="下一个" href="javascript:;"></a>
+  <div id=FS_numList_01 class=scroll_num></div>             
+
+        </div>
+                
+			</div>
+			
+			<div class="section" id="section5" style="background-image:url(${five_b_image.image_url})">
+                <div class="zjh-contain">
+                    <div class="header">你问我答</div>
+                    <div id="section7Scroll">
+                    <% for(item in  dialog){ %>
+                    <div class="content">
+                        <div class="photo"></div>
+                        <p onclick="pClick(${item.id})">${item.title}</p>
+                        <div class="ask-div-1">
+                        <span class="ask-span-1">${item.job}</span>
+                        <span>于${item.update_time}发表</span>
+                        </div>
+                    </div>
+                     <% } %>
+                    </div>
+                    
+                    <div id="sec5Talk">
+                        <span>我要提问</span>
+                        <a href="#"><img src="static/lango/testIMG/talk.png" id="talkImg"/></a>
+                    </div>
+                </div>
+                <div id="section7Text" hidden="hidden">
+                    <a id="comeBackToSec7" href="javascript:comeBack();"></a>
+                    <br>
+                    <div id="answer"></div>
+                </div>
+                <div id="askquesttion" hidden="hidden">
+                    <a id="comeBackToSec7" href="javascript:comeBack1();"></a>
+                    <br>
+                   <div class="message">
+		      <form name="myform" id="myform" action="front/resume/addquestion" method="post">
+			<table  border="0" cellspacing="0" cellpadding="0" style="margin-left: 220px">
+				<tbody>
+					<tr>
+					 <td colspan="2">
+					    <h3 style="margin-bottom: 15px;">编写留言</h3>
+					    </td>
+					</tr>
+					<tr>
+						<td>问题：</td>
+						<td>
+						<textarea class=""  name="content" maxlength="200" rows="4" cols="60" id="content"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>验证码：</td>
+						<td style="text-align: left">
+						<input name="imageCode" type="text" style="padding-left: 5px;width: 106px;height: 36px;border-radius: 3px;"
+			autocomplete="off" tabindex="2" value="" maxlength="4" id="imageCode"  tabindex="3" placeholder="验证码">
+			<img id="picimageCode" align="middle" width="60" height=34"
+					style="line-height: 18px; cursor: pointer;"
+							src="front/image_code" title="更换一张验证码图片"
+						onclick="loadPicimageCode()" />
+						</td>
+					</tr>
+					<tr>
+					<td></td>
+				    <td style="text-align: left"><span id="tip" style="color:red;"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+		<button onclick="setquestion()" style="margin-top: 20px; width: 100px;height: 28px;border: 0;cursor: pointer;border-radius: 2px;background-color: #32DE1A;">提交</button>
+	</div>
+                </div>
+			</div>
+          <div class="section" id="section6" style="background-image:url(${six_b_image.image_url})">
+              <div class="callUsTit"><span></span>联系我们</div>
+              <div class="callUsText">
+                  <% for(item in contactus){ %>
+                     ${item.content}
+                     <% } %>     
+              </div>
+			</div>
+</div>
+    <nav class="zjh-nav" id="zjhNav">
+		<div class="zjh-nav-container">
+			<div class="nav-left">
+				<a class="" href="#j408"> <img alt="logo" src="static/lango/testIMG/favicon.ico" width="24" height="24">
+					朗国科技
+				</a>
+			</div>
+			<div class="nav-right">
+				<ul class="nav-ul" id="navUl">
+				 	<% if (!isEmpty(folders)){ %>
+			<% for(item in folders){ %>
+				<% // 如果是跳转到admin后台管理页面，那么必须是登录并且是管理员 %>
+				<% if (item.jump_url!='admin' || (item.jump_url=='admin' && !isEmpty(session.session_user) && session.session_user.usertype == 1) ) { 
+
+%>
+					<% if(item.type==1){ %>
+					<li id="${item.html_id}" ><span></span><a href="${flyfox.getMenu(item.id)}">${item.name}</a></li>
+					<% } %>
+				 	<% } %>
+			<% } %>
+		<% } %>
+				</ul>
+			</div>
+		</div>
+	<% if(isEmpty(session.session_user)){ %>
+        <div id="login"><a href="front/login">登录</a>｜<a href="front/resume" target="_blank">注册</a></div>
+    <% } else { %>   
+     <div id="login">欢迎${session.session_user.realname}｜<a href="front/logout">安全退出</a></div>
+     	<% } %>
+	</nav>
+         <div id="scode">
+             <div id="scodeContainer">
+             <div id="con1">
+             <img src="${QRCode.image_url}" />
+             <p id="con1p1">${QRCode.content}</p>
+             <p id="con1p2">${QRCode.job}</p>
+              </div>
+              <div  id="con2">
+                  <p>[ 加入朗国 ]</p>
+                  <p>赢</p>                  
+                  <p>[精彩人生]</p>
+                  <p>[欢迎广大精英加入]</p>
+               </div>
+             </div>
+         </div>
+         
+        <a id="send" href="front/resume" target="_blank" >我要<br>投递</a>
+        <div class="zjh-footer">广州朗国电子科技有限公司&nbsp; &nbsp;粤ICP备14024048号-1 	朗国电子科技&nbsp;</div>
+    
+      <script type="text/javascript" src="static/lango/testJS/all.js"></script>
+         <script type="text/javascript" src="static/lango/testJS/addImgAsyn.js"></script>
+      <script>
+      </script>
+<%}; %>
+
+<% layout("/pages/template/_layout.html",{head:headContent,body:bodyContent}){ %>
+<%} %> 
